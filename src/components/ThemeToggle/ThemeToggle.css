@@ -1,0 +1,57 @@
+.switch-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    background: #222;
+    padding: 5px 10px;
+    border-radius: 20px;
+    z-index: 1000;
+  }
+  
+  input[type="checkbox"] {
+    display: none;
+  }
+  
+  label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75px;
+    height: 35px;
+    padding: 0 6px;
+    background: #222;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  label .fa-sun, label .fa-moon {
+    font-size: 18px;
+    transition: transform 0.8s, opacity 0.8s;
+  }
+  
+  label .fa-sun {
+    color: gold;
+  }
+  
+  label .fa-moon {
+    color: #fff;
+    opacity: 0;
+  }
+  
+  input:checked + label .fa-sun {
+    transform: translateX(43px);
+    opacity: 0;
+  }
+  
+  input:checked + label .fa-moon {
+    transform: translateX(-43px);
+    opacity: 1;
+  }
+  
+  label .ball {
+    display: none;
+  }
+  
