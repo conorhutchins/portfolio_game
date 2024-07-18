@@ -5,6 +5,7 @@ interface MainCellProps {
   position: { x: number; y: number };
   setPosition: (position: { x: number; y: number }) => void;
   size: number;
+  label: string;
 }
 
 const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size }) => {
@@ -19,16 +20,14 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size }) => {
     };
   }, []);
 
+  const style = {
+    '--left': `${position.x}px`,
+    '--top': `${position.y}px`,
+    '--size': `${size}px`,
+  } as React.CSSProperties;
+
   return (
-    <div
-      className={styles.mainCell}
-      style={{
-        width: size,
-        height: size,
-        left: position.x - size / 2,
-        top: position.y - size / 2,
-      }}
-    ></div>
+    <div className={styles.mainCell} style={style}></div>
   );
 };
 

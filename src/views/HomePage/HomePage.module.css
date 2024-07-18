@@ -1,0 +1,88 @@
+.homePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f05604, #36013c);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 556px;
+    margin: auto;
+    height: 50vh;
+    position: absolute;
+    top: 25%;
+    left: 35%;
+    font-family: inherit;
+  }
+  
+  .homePage h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+  }
+  
+  .homePage p {
+    font-size: 1em;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-top: 10px;
+  }
+  
+  .input {
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 200px;
+  }
+  
+  .input::placeholder {
+    text-align: center;
+  }
+  
+  .startButton {
+    padding: 20px 250px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  .startButton:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .workExamplesLink {
+    margin-top: 20px;
+    font-size: 1em;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .workExamplesLink:hover {
+    color: #f2f2f2;
+  }
+  
+  .howToPlay,
+  .instructions {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .boldUnderlined {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
