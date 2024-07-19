@@ -1,12 +1,30 @@
 :root {
   --background-color: #ffffff;
-  --text-color: #000000;
+  --background-gradient: linear-gradient(135deg, #ec6d28, #36013c);
+  --text-color: white;
   --font-family: 'Roboto', sans-serif;
-}
+  --input-background: #ffffff;
+  --input-text-color: #000000;
+  --input-border-color: #ccc;
+  --input-focus-border-color: rgb(229, 229, 235);
+  --input-focus-box-shadow: rgba(5, 134, 220, 0.961);
+  --button-background-color: #ffffff;
+  --button-text-color: #000000;
+  --button-hover-background-color: #f2f2f2;
+} 
 
 [data-theme="dark"] {
   --background-color: #121212;
+  --background-gradient: linear-gradient(135deg, #464444, #100909);
   --text-color: #ffffff;
+  --input-background: #333333;
+  --input-text-color: #ffffff;
+  --input-border-color: #555555;
+  --input-focus-border-color: rgb(229, 229, 235);
+  --input-focus-box-shadow: rgba(5, 134, 220, 0.961);
+  --button-background-color: #444444;
+  --button-text-color: #ffffff;
+  --button-hover-background-color: #666666;
 }
 
 body {
@@ -26,7 +44,7 @@ button {
 }
 
 button:hover {
-  opacity: 0.8;
+  background-color: var(--button-hover-background-color);
 }
 
 .app {

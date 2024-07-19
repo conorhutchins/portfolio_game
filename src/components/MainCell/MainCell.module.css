@@ -1,11 +1,18 @@
 .mainCell {
-    position: absolute;
-    border-radius: 50%;
-    background-color: blue;
-    transform: translate(-50%, -50%);
-    width: var(--size);
-    height: var(--size);
-    top: var(--top);
-    left: var(--left);
-  }
-  
+  position: absolute;
+  border-radius: 50%;
+  background-color: #3498db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  width: var(--size);
+  height: var(--size);
+  left: calc(var(--left) - var(--size) / 2);
+  top: calc(var(--top) - var(--size) / 2);
+}
+
+.label {
+  font-size: 1em;
+}

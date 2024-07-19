@@ -1,16 +1,19 @@
 .consumableCell {
     position: absolute;
     border-radius: 50%;
-    background-color: green;
+    background-color: var(--color);
     display: flex;
     align-items: center;
-    display: flex;
     justify-content: center;
     color: white;
     font-weight: bold;
-    transform: translate(-50%, -50%);
     width: var(--size);
     height: var(--size);
-    top: var(--top);
-    left: var(--left);
-}
+    left: calc(var(--left) - var(--size) / 2);
+    top: calc(var(--top) - var(--size) / 2);
+  }
+  
+  .label {
+    font-size: 1em;
+  }
+  
