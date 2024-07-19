@@ -14,7 +14,7 @@
     display: none;
   }
   
-  label {
+  .switch {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -27,31 +27,31 @@
     position: relative;
   }
   
-  label .fa-sun, label .fa-moon {
+  .sun, .moon {
     font-size: 18px;
     transition: transform 0.8s, opacity 0.8s;
   }
   
-  label .fa-sun {
+  .sun {
     color: gold;
   }
   
-  label .fa-moon {
+  .moon {
     color: #fff;
     opacity: 0;
   }
   
-  input:checked + label .fa-sun {
+  input:checked + .switch .sun {
     transform: translateX(43px);
     opacity: 0;
   }
   
-  input:checked + label .fa-moon {
+  input:checked + .switch .moon {
     transform: translateX(-43px);
     opacity: 1;
   }
   
-  label .ball {
+  .ball {
     display: none;
   }
   

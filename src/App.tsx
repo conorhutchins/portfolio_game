@@ -12,6 +12,8 @@ const App: React.FC = () => {
     <ThemeProvider>
       <Router>
         <div className="app">
+      <i className="fas fa-sun"></i>
+      <i className="fas fa-moon"></i>
           <ThemeToggle />
           <Routes>
             <Route path="/" element={<HomePage />} />
