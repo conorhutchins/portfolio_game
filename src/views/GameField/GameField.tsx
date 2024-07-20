@@ -6,7 +6,6 @@ import Modal from '../../components/Modal/Modal';
 import styles from './GameField.module.css';
 import { useCells } from '../../hooks/useCells';
 import { initialLabelledCells } from '../../data/initialLabelledCells';
-import { LabelledCell } from '../../types';
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
@@ -26,8 +25,6 @@ const GameField: React.FC = () => {
     handleConsume,
   } = useCells(initialLabelledCells, window.innerWidth, window.innerHeight);
 
-  const consumedLabelledCell = cells.find(cell => cell.id === consumedCell && 'label' in cell) as LabelledCell | undefined;
-
   return (
     <div className={styles.gameField}>
       <MainCell position={mainCellPosition} setPosition={setMainCellPosition} size={mainCellSize} label={userName} />
@@ -44,8 +41,8 @@ const GameField: React.FC = () => {
           {...('label' in cell && { label: cell.label })}
         />
       ))}
-      {consumedLabelledCell && (
-        <Modal content={`You consumed: ${consumedLabelledCell.label}`} onClose={() => setConsumedCell(null)} />
+      {consumedCell && (
+        <Modal content={`You consumed: ${consumedCell.label}`} onClose={() => setConsumedCell(null)} />
       )}
     </div>
   );

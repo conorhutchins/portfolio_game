@@ -5,7 +5,7 @@ import { LabelledCell, Cell } from '../types';
 export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: number, windowHeight: number) => {
   const [mainCellPosition, setMainCellPosition] = useState({ x: windowWidth / 2, y: windowHeight / 2 });
   const [mainCellSize, setMainCellSize] = useState(50);
-  const [consumedCell, setConsumedCell] = useState<string | null>(null);
+  const [consumedCell, setConsumedCell] = useState<LabelledCell | null>(null);
   const [cells, setCells] = useState<Cell[]>([
     ...initialLabelledCells,
     ...generateRandomCells(20, windowWidth, windowHeight, initialLabelledCells)
@@ -14,9 +14,7 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
   const handleConsume = useCallback((id: string, cellSize: number) => {
     const cell = cells.find(cell => cell.id === id);
     if (cell && 'label' in cell) {
-      setConsumedCell(id);
-    } else {
-      setConsumedCell(null);
+      setConsumedCell(cell); // Set consumedCell to the cell itself
     }
     setMainCellSize(prevSize => prevSize + cellSize / 2); // Add half the size of the consumed cell to the main cell's size
     setCells(prevCells => prevCells.filter(cell => cell.id !== id));
