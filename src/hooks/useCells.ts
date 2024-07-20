@@ -15,6 +15,9 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
     const cell = cells.find(cell => cell.id === id);
     if (cell && 'label' in cell) {
       setConsumedCell(cell); // Set consumedCell to the cell itself
+      if (cell.label === 'C.V') {
+        window.open('https://docs.google.com/document/d/1_mCPPCm-o1bl1O-s_qwoy6YYP0L4V-Ty4BldaSQCDis/edit?usp=sharing', '_blank');
+      }
     }
     setMainCellSize(prevSize => prevSize + cellSize / 2); // Add half the size of the consumed cell to the main cell's size
     setCells(prevCells => prevCells.filter(cell => cell.id !== id));
