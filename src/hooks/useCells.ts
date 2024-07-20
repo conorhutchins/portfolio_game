@@ -1,22 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { generateRandomCells } from '../utils/positions';
-
-interface LabelledCell {
-  id: string;
-  label: string;
-  initialPosition: { x: number; y: number };
-  size: number;
-  color: string;
-}
-
-interface UnlabelledCell {
-  id: string;
-  initialPosition: { x: number; y: number };
-  size: number;
-  color: string;
-}
-
-type Cell = LabelledCell | UnlabelledCell;
+import { LabelledCell, Cell } from '../types';
 
 export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: number, windowHeight: number) => {
   const [mainCellPosition, setMainCellPosition] = useState({ x: windowWidth / 2, y: windowHeight / 2 });
@@ -28,10 +12,15 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
   ]);
 
   const handleConsume = useCallback((id: string, cellSize: number) => {
-    setConsumedCell(id);
+    const cell = cells.find(cell => cell.id === id);
+    if (cell && 'label' in cell) {
+      setConsumedCell(id);
+    } else {
+      setConsumedCell(null);
+    }
     setMainCellSize(prevSize => prevSize + cellSize / 2); // Add half the size of the consumed cell to the main cell's size
     setCells(prevCells => prevCells.filter(cell => cell.id !== id));
-  }, []);
+  }, [cells]);
 
   useEffect(() => {
     cells.forEach(cell => {
