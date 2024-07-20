@@ -16,7 +16,7 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label 
     const dx = e.clientX - position.x;
     const dy = e.clientY - position.y;
     const angle = Math.atan2(dy, dx);
-    const speed = 2; // Adjust this value for speed
+    const speed = 3.7; 
     setVelocity({ x: Math.cos(angle) * speed, y: Math.sin(angle) * speed });
   };
 

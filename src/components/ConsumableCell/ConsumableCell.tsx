@@ -9,7 +9,7 @@ interface ConsumableCellProps {
   mainCellSize: number;
   size: number;
   color?: string;
-  onConsume: () => void;
+  onConsume: (id: string, size: number) => void;
 }
 
 const ConsumableCell: React.FC<ConsumableCellProps> = ({
@@ -27,11 +27,13 @@ const ConsumableCell: React.FC<ConsumableCellProps> = ({
 
     if (distance < mainCellSize / 2 + size / 2) {
       if (mainCellSize > size) {
-        onConsume();
+        onConsume(id, size);
         consumedRef.current = true;
       }
     }
   }, [mainCellPosition, mainCellSize, position, size, onConsume]);
+
+  if (consumedRef.current) return null;
 
   const style = {
     '--left': `${position.x}px`,
