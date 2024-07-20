@@ -23,18 +23,56 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
     setCells(prevCells => prevCells.filter(cell => cell.id !== id));
   }, [cells]);
 
+  const handleCellConsume = useCallback((consumingCell: Cell, consumedCell: Cell) => {
+    if (!('label' in consumedCell)) {
+      setCells(prevCells => prevCells.filter(cell => cell.id !== consumedCell.id));
+      consumingCell.size += consumedCell.size / 2;
+    }
+  }, []);
+
   useEffect(() => {
-    cells.forEach(cell => {
-      const dx = mainCellPosition.x - cell.initialPosition.x;
-      const dy = mainCellPosition.y - cell.initialPosition.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      if (distance < mainCellSize / 2 + cell.size / 2.2) {
-        if (mainCellSize > cell.size) {
-          handleConsume(cell.id, cell.size);
+    const interval = setInterval(() => {
+      setCells(prevCells => {
+        return prevCells.map(cell => {
+          if ('label' in cell) {
+            const newPos = {
+              x: cell.initialPosition.x + (Math.random() - 0.5) * 2,
+              y: cell.initialPosition.y + (Math.random() - 0.5) * 2,
+            };
+            return { ...cell, initialPosition: newPos };
+          }
+          return cell;
+        });
+      });
+
+      cells.forEach(cell => {
+        const dx = mainCellPosition.x - cell.initialPosition.x;
+        const dy = mainCellPosition.y - cell.initialPosition.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < mainCellSize / 2 + cell.size / 2) {
+          if (mainCellSize > cell.size) {
+            handleConsume(cell.id, cell.size);
+          }
         }
-      }
-    });
-  }, [mainCellPosition, mainCellSize, cells, handleConsume]);
+
+        cells.forEach(otherCell => {
+          if ('label' in cell && cell.id !== otherCell.id) {
+            const dx = cell.initialPosition.x - otherCell.initialPosition.x;
+            const dy = cell.initialPosition.y - otherCell.initialPosition.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < cell.size / 2 + otherCell.size / 2) {
+              if (cell.size > otherCell.size) {
+                handleCellConsume(cell, otherCell);
+              }
+            }
+          }
+        });
+      });
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, [mainCellPosition, mainCellSize, cells, handleConsume, handleCellConsume]);
 
   return {
     mainCellPosition,
