@@ -39,8 +39,8 @@ const GameField: React.FC = () => {
           size={cell.size}
           color={cell.color}
           onConsume={handleConsume}
-          onLabelledCellConsume={handleLabelledCellConsume}
           allCells={allCells}
+          onLabelledCellConsume={handleLabelledCellConsume}
           {...('label' in cell && { label: cell.label })}
         />
       ))}

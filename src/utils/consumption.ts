@@ -1,5 +1,6 @@
 import { Cell, LabelledCell } from '../types';
 import { isLabelledCell } from './helpers';
+import { CONFIG } from './config';
 
 export const handleMainCellConsume = (
   allCells: Cell[],
@@ -33,8 +34,7 @@ export const handleLabelledCellConsume = (
         return {
           ...cell,
           size: cell.size + consumedSize / 2,
-          // Add a timestamp to force re-render
-          lastUpdated: Date.now()
+          lastUpdated: Date.now(), // Add a timestamp to force re-render
         };
       }
       return cell;

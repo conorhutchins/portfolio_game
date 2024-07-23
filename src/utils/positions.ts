@@ -1,4 +1,5 @@
 import { getRandomColor } from './colors';
+import { CONFIG } from '../utils/config';
 
 export const getRandomPosition = (maxWidth: number, maxHeight: number): { x: number; y: number } => {
   return {
@@ -43,13 +44,14 @@ export const generateRandomCells = (
   existingCells: { initialPosition: { x: number; y: number }; size: number }[]
 ): { id: string; initialPosition: { x: number; y: number }; size: number; color: string }[] => {
   const cells = [];
+  const randomCellSize = CONFIG.RANDOM_CELL.size;
 
   for (let i = 0; i < count; i++) {
-    const position = findNonCollidingPosition([...existingCells, ...cells], 20, maxWidth, maxHeight);
+    const position = findNonCollidingPosition([...existingCells, ...cells], randomCellSize, maxWidth, maxHeight);
     cells.push({
       id: `cell-${i + 1}`,
       initialPosition: position,
-      size: 20,
+      size: randomCellSize,
       color: getRandomColor(),
     });
   }

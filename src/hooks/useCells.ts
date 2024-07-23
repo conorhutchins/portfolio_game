@@ -1,33 +1,56 @@
 import { useState, useCallback, useEffect } from 'react';
 import { generateRandomCells } from '../utils/positions';
 import { LabelledCell, Cell } from '../types';
+import { CONFIG } from '../utils/config';
 import { isLabelledCell } from '../utils/helpers';
-import { handleCollision } from '../utils/collision';
 import { moveLabelledCells } from '../utils/movement';
-import { handleMainCellConsume as mainCellConsume, handleLabelledCellConsume as labelledCellConsume } from '../utils/consumption';
+import { handleCollision } from '../utils/collision';
 
 export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: number, windowHeight: number) => {
   const [mainCellPosition, setMainCellPosition] = useState({ x: windowWidth / 2, y: windowHeight / 2 });
-  const [mainCellSize, setMainCellSize] = useState(50);
+  const [mainCellSize, setMainCellSize] = useState(CONFIG.MAIN_CELL.initialSize);
   const [consumedByMainCell, setConsumedByMainCell] = useState<LabelledCell | null>(null);
   const [allCells, setAllCells] = useState<Cell[]>(() => [
     ...initialLabelledCells,
-    ...generateRandomCells(20, windowWidth, windowHeight, initialLabelledCells)
+    ...generateRandomCells(20, windowWidth, windowHeight, initialLabelledCells),
   ]);
 
   const handleMainCellConsume = useCallback((id: string, cellSize: number) => {
-    mainCellConsume(allCells, setAllCells, setMainCellSize, setConsumedByMainCell, id, cellSize);
+    const cell = allCells.find(cell => cell.id === id);
+    if (cell && isLabelledCell(cell)) {
+      setConsumedByMainCell(cell);
+      if (cell.label === 'C.V') {
+        window.open('https://docs.google.com/document/d/1_mCPPCm-o1bl1O-s_qwoy6YYP0L4V-Ty4BldaSQCDis/edit?usp=sharing', '_blank');
+      }
+    }
+    setMainCellSize(prevSize => prevSize + cellSize / 2);
+    setAllCells(prevCells => prevCells.filter(cell => cell.id !== id));
   }, [allCells]);
 
   const handleLabelledCellConsume = useCallback((consumerId: string, consumedId: string, consumedSize: number) => {
-    labelledCellConsume(allCells, setAllCells, consumerId, consumedId, consumedSize);
-  }, [allCells]);
+    setAllCells(prevCells => {
+      return prevCells.map(cell => {
+        if (cell.id === consumerId && isLabelledCell(cell)) {
+          return {
+            ...cell,
+            size: cell.size + consumedSize / 2,
+            // Add a timestamp to force re-render
+            lastUpdated: Date.now()
+          };
+        }
+        return cell;
+      }).filter(cell => cell.id !== consumedId || isLabelledCell(cell));
+    });
+  }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setAllCells(prevCells => {
-        let updatedCells = moveLabelledCells(prevCells);
+    const moveInterval = setInterval(() => {
+      setAllCells(prevCells => moveLabelledCells(prevCells));
+    }, CONFIG.LABELLED_CELL.moveInterval);
 
+    const collisionInterval = setInterval(() => {
+      setAllCells(prevCells => {
+        let updatedCells = [...prevCells];
         updatedCells.forEach((cell, index) => {
           const mainCellAsCell: Cell = {
             id: 'main',
@@ -53,12 +76,14 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
             }
           }
         });
-
         return updatedCells;
       });
-    }, 100);
+    }, CONFIG.LABELLED_CELL.collisionInterval);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(moveInterval);
+      clearInterval(collisionInterval);
+    };
   }, [mainCellPosition, mainCellSize, handleMainCellConsume, handleLabelledCellConsume]);
 
   return {
