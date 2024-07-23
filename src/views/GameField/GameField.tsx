@@ -19,16 +19,17 @@ const GameField: React.FC = () => {
     mainCellPosition,
     setMainCellPosition,
     mainCellSize,
-    consumedCell,
-    setConsumedCell,
-    cells,
+    consumedByMainCell,
+    setConsumedByMainCell,
+    allCells,
     handleConsume,
+    handleLabelledCellConsume,
   } = useCells(initialLabelledCells, window.innerWidth, window.innerHeight);
 
   return (
     <div className={styles.gameField}>
       <MainCell position={mainCellPosition} setPosition={setMainCellPosition} size={mainCellSize} label={userName} />
-      {cells.map(cell => (
+      {allCells.map(cell => (
         <ConsumableCell
           key={cell.id}
           id={cell.id}
@@ -38,11 +39,13 @@ const GameField: React.FC = () => {
           size={cell.size}
           color={cell.color}
           onConsume={handleConsume}
+          onLabelledCellConsume={handleLabelledCellConsume}
+          allCells={allCells}
           {...('label' in cell && { label: cell.label })}
         />
       ))}
-      {consumedCell && (
-        <Modal content={`You consumed: ${consumedCell.label}`} onClose={() => setConsumedCell(null)} />
+      {consumedByMainCell && (
+        <Modal content={`You consumed: ${consumedByMainCell.label}`} onClose={() => setConsumedByMainCell(null)} />
       )}
     </div>
   );

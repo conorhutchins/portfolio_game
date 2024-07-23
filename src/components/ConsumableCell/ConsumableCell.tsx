@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './ConsumableCell.module.css';
+import { Cell } from '../../types';
 
 interface ConsumableCellProps {
   id: string;
@@ -10,10 +11,13 @@ interface ConsumableCellProps {
   size: number;
   color?: string;
   onConsume: (id: string, size: number) => void;
+  onLabelledCellConsume: (consumerId: string, consumedId: string, consumedSize: number) => void;
+  allCells: Cell[];
+  lastUpdated?: number;
 }
 
 const ConsumableCell: React.FC<ConsumableCellProps> = ({
-  id, label, initialPosition, mainCellPosition, mainCellSize, size, color = '#3498db', onConsume
+  id, label, initialPosition, mainCellPosition, mainCellSize, size, color = '#3498db', onConsume, allCells, onLabelledCellConsume, lastUpdated
 }) => {
   const [position, setPosition] = useState(initialPosition);
   const [velocity, setVelocity] = useState({ x: 0, y: 0 });
@@ -21,7 +25,7 @@ const ConsumableCell: React.FC<ConsumableCellProps> = ({
 
   useEffect(() => {
     if (label) {
-      const speedMultiplier = 5; // Adjust this value for desired speed
+      const speedMultiplier = 5;
       setVelocity({ x: (Math.random() - 0.5) * speedMultiplier, y: (Math.random() - 0.5) * speedMultiplier });
     }
   }, [label]);
@@ -62,9 +66,24 @@ const ConsumableCell: React.FC<ConsumableCellProps> = ({
       if (mainCellSize > size) {
         onConsume(id, size);
         consumedRef.current = true;
+        return;
       }
     }
-  }, [mainCellPosition, mainCellSize, position, size, onConsume]);
+
+    if (label) {
+      allCells.forEach(otherCell => {
+        if (otherCell.id !== id && !('label' in otherCell)) {
+          const dx = position.x - otherCell.initialPosition.x;
+          const dy = position.y - otherCell.initialPosition.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < size / 2 + otherCell.size / 2 && size > otherCell.size) {
+            onLabelledCellConsume(id, otherCell.id, otherCell.size);
+          }
+        }
+      });
+    }
+  }, [mainCellPosition, mainCellSize, position, size, onConsume, id, label, allCells, onLabelledCellConsume]);
 
   if (consumedRef.current) return null;
 
@@ -76,7 +95,7 @@ const ConsumableCell: React.FC<ConsumableCellProps> = ({
   } as React.CSSProperties;
 
   return (
-    <div className={styles.consumableCell} style={style}>
+    <div className={styles.consumableCell} style={style} key={`${id}-${lastUpdated}`}>
       {label && <span className={styles.label}>{label}</span>}
     </div>
   );
