@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './MainCell.module.css';
+import { CONFIG } from '../../utils/config';
 
 interface MainCellProps {
   position: { x: number; y: number };
@@ -16,7 +17,7 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label 
     const dx = e.clientX - position.x;
     const dy = e.clientY - position.y;
     const angle = Math.atan2(dy, dx);
-    const speed = 3.7; 
+    const speed = CONFIG.MAIN_CELL.speedMultiplier; 
     setVelocity({ x: Math.cos(angle) * speed, y: Math.sin(angle) * speed });
   };
 

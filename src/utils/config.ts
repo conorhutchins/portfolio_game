@@ -1,10 +1,10 @@
 export const CONFIG = {
   MAIN_CELL: {
     initialSize: 50,
-    speedMultiplier: 100,
+    speedMultiplier: 5,
   },
   LABELLED_CELL: {
-    speedMultiplier: 0,
+    speedMultiplier: 8,
     moveInterval: 50,
     collisionInterval: 100,
   },

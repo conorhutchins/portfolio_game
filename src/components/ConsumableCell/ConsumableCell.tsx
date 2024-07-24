@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styles from './ConsumableCell.module.css';
 import { Cell } from '../../types';
+import { CONFIG } from '../../utils/config';
 
 interface ConsumableCellProps {
   id: string;
@@ -25,8 +26,8 @@ const ConsumableCell: React.FC<ConsumableCellProps> = ({
 
   useEffect(() => {
     if (label) {
-      const speedMultiplier = 5;
-      setVelocity({ x: (Math.random() - 0.5) * speedMultiplier, y: (Math.random() - 0.5) * speedMultiplier });
+      const speed = CONFIG.LABELLED_CELL.speedMultiplier;
+      setVelocity({ x: (Math.random() - 0.5) * speed, y: (Math.random() - 0.5) * speed });
     }
   }, [label]);
 
