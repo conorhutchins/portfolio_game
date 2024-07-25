@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './views/HomePage/HomePage';
 import GameField from './views/GameField/GameField';
 import EndSummary from './views/EndSummary/EndSummary';
+import ContactPage from './views/ContactPage/ContactPage';
 import ThemeToggle from './components/ThemeToggle/ThemeToggle';
 import { ThemeProvider } from './theme/ThemeContext';
 import './App.css';
@@ -12,12 +13,13 @@ const App: React.FC = () => {
     <ThemeProvider>
       <Router>
         <div className="app">
-      <i className="fas fa-sun"></i>
-      <i className="fas fa-moon"></i>
+          <i className="fas fa-sun"></i>
+          <i className="fas fa-moon"></i>
           <ThemeToggle />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/game" element={<GameField />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/summary" element={<EndSummary />} />
           </Routes>
         </div>

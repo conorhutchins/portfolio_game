@@ -1,5 +1,5 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import MainCell from '../../components/MainCell/MainCell';
 import ConsumableCell from '../../components/ConsumableCell/ConsumableCell';
 import Modal from '../../components/Modal/Modal';
@@ -13,6 +13,7 @@ const useQuery = () => {
 
 const GameField: React.FC = () => {
   const query = useQuery();
+  const navigate = useNavigate();
   const userName = query.get('name') || 'Player';
 
   const {
@@ -25,6 +26,12 @@ const GameField: React.FC = () => {
     handleConsume,
     handleLabelledCellConsume,
   } = useCells(initialLabelledCells, window.innerWidth, window.innerHeight);
+
+  useEffect(() => {
+    if (consumedByMainCell?.label === 'Contact') {
+      navigate('/contact');
+    }
+  }, [consumedByMainCell, navigate]);
 
   return (
     <div className={styles.gameField}>
