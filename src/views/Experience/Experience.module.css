@@ -1,0 +1,26 @@
+.section {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .article {
+    /* Add any specific styles for the article here */
+  }
+  
+  .headText {
+    /* Add any specific styles for the head text here */
+  }
+  
+  .subText {
+    margin-top: 1rem;
+    max-width: 48rem;
+    line-height: 1.875rem;
+  }
+  
+  .timelineContainer {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+  }
+  

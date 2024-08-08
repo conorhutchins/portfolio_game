@@ -1,35 +1,35 @@
 import React from 'react';
 import type { Experience } from '../../types';
 import { VerticalTimelineElement } from 'react-vertical-timeline-component';
+import experienceCardStyles from './ExperienceCard.module.css';
 
 const ExperienceCard = ({ experience }: { experience: Experience }) => {
   return (
     <VerticalTimelineElement
+      className={experienceCardStyles.verticalTimelineElement}
       contentStyle={{ background: "#1d1836", color: "#fff" }}
       contentArrowStyle={{ borderRight: "7px solid #232631" }}
       date={`${experience.startDate} - ${experience.endDate}`}
       iconStyle={{ background: experience.logoBg }}
       icon={
-        <figure className="flex justify-center items-center h-full w-full">
+        <figure className={`${experienceCardStyles.iconContainer}`}>
           <img
             src={experience.logo}
             alt={`${experience.company} logo`}
-            className="w-[70%] h-[70%] object-contain"
+            className={`${experienceCardStyles.logo}`}
           />
         </figure>
       }
     >
       <section>
-        <h3 className="text-white, text-[24px] font-bold">{experience.role}</h3>
-        <p className="text-secondary text-[16px] font-semibold" style={{ margin: 0 }}>
-          {experience.company}
-        </p>
+        <h3 className={experienceCardStyles.role}>{experience.role}</h3>
+        <p className={experienceCardStyles.company}>{experience.company}</p>
       </section>
 
-      <ul className="list-disc mt-5 ml-5 space-y-2">
+      <ul className={experienceCardStyles.descriptionList}>
         {experience.description.map((desc, index) => {
           return (
-            <li key={index} className="text-white-100 text-[14px] pl-1 tracking-wider">
+            <li key={index} className={experienceCardStyles.descriptionItem}>
               {desc}
             </li>
           );
