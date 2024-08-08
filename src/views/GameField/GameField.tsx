@@ -28,8 +28,23 @@ const GameField: React.FC = () => {
   } = useCells(initialLabelledCells, window.innerWidth, window.innerHeight);
 
   useEffect(() => {
-    if (consumedByMainCell?.label === 'Contact') {
-      navigate('/contact');
+    if (consumedByMainCell) {
+      switch (consumedByMainCell.label) {
+        case 'Contact':
+          navigate('/contact');
+          break;
+        case 'Experience':
+          navigate('/experience');
+          break;
+        case 'Tech Stack':
+          navigate('/techstack');
+          break;
+        case 'Projects':
+          navigate('/projects');
+          break;
+        default:
+          break;
+      }
     }
   }, [consumedByMainCell, navigate]);
 

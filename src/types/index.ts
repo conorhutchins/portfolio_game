@@ -15,3 +15,26 @@ export interface LabelledCell {
   
   export type Cell = LabelledCell | UnlabelledCell;
   
+  export type Experience = {
+    role: string;
+    company: string;
+    startDate: string;
+    endDate: string;
+    logo: string;
+    logoBg: string;
+    description: string[];
+  };
+  
+  export type Technologies = {
+    name: string;
+    icon: string;
+    category: string;
+  };
+  
+  export type Project = {
+    name: string;
+    image: string;
+    link: string;
+    repo: string;
+    techStack: string[];
+  };
