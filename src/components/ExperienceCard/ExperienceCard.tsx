@@ -1,39 +1,47 @@
 import React from 'react';
 import type { Experience } from '../../types';
 import { VerticalTimelineElement } from 'react-vertical-timeline-component';
-import experienceCardStyles from './ExperienceCard.module.css';
 
 const ExperienceCard = ({ experience }: { experience: Experience }) => {
   return (
     <VerticalTimelineElement
-      className={experienceCardStyles.verticalTimelineElement}
       contentStyle={{ background: "#1d1836", color: "#fff" }}
-      contentArrowStyle={{ borderRight: "7px solid #232631" }}
+      contentArrowStyle={{ borderRight: "10px solid #232631" }}
       date={`${experience.startDate} - ${experience.endDate}`}
-      iconStyle={{ background: experience.logoBg }}
+      iconStyle={{
+        background: experience.logoBg,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '60px',  
+        height: '60px', 
+        marginLeft: '-30px',
+      }}
       icon={
-        <figure className={`${experienceCardStyles.iconContainer}`}>
-          <img
-            src={experience.logo}
-            alt={`${experience.company} logo`}
-            className={`${experienceCardStyles.logo}`}
-          />
-        </figure>
+        <img
+          src={experience.logo}
+          alt={`${experience.company} logo`}
+          style={{
+            width: '40px', // Size of the image inside the icon
+            height: '40px',
+            objectFit: 'contain',
+          }}
+        />
       }
     >
       <section>
-        <h3 className={experienceCardStyles.role}>{experience.role}</h3>
-        <p className={experienceCardStyles.company}>{experience.company}</p>
+        <h3 className="text-white text-2xl font-bold">{experience.role}</h3>
+        <p className="text-secondary text-lg font-semibold m-0">
+          {experience.company}
+        </p>
       </section>
 
-      <ul className={experienceCardStyles.descriptionList}>
-        {experience.description.map((desc, index) => {
-          return (
-            <li key={index} className={experienceCardStyles.descriptionItem}>
-              {desc}
-            </li>
-          );
-        })}
+      <ul className="list-disc mt-5 ml-5 space-y-2">
+        {experience.description.map((desc, index) => (
+          <li key={index} className="text-gray-300 text-sm pl-1 tracking-wide">
+            {desc}
+          </li>
+        ))}
       </ul>
     </VerticalTimelineElement>
   );
