@@ -1,0 +1,12 @@
+.qrCodeContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .qrCode {
+    width: 200px; /* Adjust the size as needed */
+    height: auto;
+  }
+  
