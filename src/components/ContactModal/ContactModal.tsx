@@ -16,7 +16,6 @@ const ContactModal: React.FC<ContactModalProps> = ({ onClose }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here, e.g., send email
     alert('Form submitted');
     onClose();
   };

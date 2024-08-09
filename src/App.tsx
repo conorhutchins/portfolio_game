@@ -5,6 +5,7 @@ import GameField from './views/GameField/GameField';
 import EndSummary from './views/EndSummary/EndSummary';
 import ContactPage from './views/ContactPage/ContactPage';
 import ThemeToggle from './components/ThemeToggle/ThemeToggle';
+import Projects from './views/Projects/Projects';
 import { ThemeProvider } from './theme/ThemeContext';
 import  ExperienceSection from './views/Experience/Experience';
 
@@ -23,6 +24,7 @@ const App: React.FC = () => {
             <Route path="/game" element={<GameField />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path='/experience' element={<ExperienceSection />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/summary" element={<EndSummary />} />
           </Routes>
         </div>

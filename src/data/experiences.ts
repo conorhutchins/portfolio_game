@@ -1,5 +1,3 @@
-// data/experiences.ts
-
 import type { Experience } from "../types/index";
 import  babylonHealthLogo  from "../assets/babylonhealth.png";
 import  northcodersLogo  from "../assets/northcoders.jpg";

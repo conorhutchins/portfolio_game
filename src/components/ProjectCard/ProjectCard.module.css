@@ -1,0 +1,94 @@
+/* Card container for additional spacing and alignment */
+.cardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+/* Main card styling */
+.card {
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 360px;
+    width: 100%;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Image wrapper for consistent aspect ratio */
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+}
+
+/* Links positioned in the top-right corner */
+.links {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.linkButton {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.linkButton:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* Text styling */
+.content {
+    text-align: left;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.techStack {
+    font-size: 0.875rem;
+    color: var(--text-secondary-color);
+}
+
+
