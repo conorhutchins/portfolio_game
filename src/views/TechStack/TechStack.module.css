@@ -1,0 +1,86 @@
+:root {
+    --card-bg-color: #1d1d1d;
+    --card-hover-bg-color: #333;
+    --card-border-radius: 12px;
+    --card-padding: 20px;
+    --icon-size: 60px;
+    --grid-gap: 20px;
+    --text-color: white;
+    --heading-font-size: 2rem;
+    --body-font-size: 1rem;
+    --font-family: 'Roboto', sans-serif;
+  }
+  
+  .techStackSection {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
+    background: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .techSkills {
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .contentWrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .skillGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--grid-gap);
+    flex-grow: 1;
+  }
+  
+  .skillCard {
+    background-color: var(--card-bg-color);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .skillCard:hover {
+    background-color: var(--card-hover-bg-color);
+    transform: translateY(-5px);
+  }
+  
+  .skillCard img {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .skillCard:hover img {
+    transform: scale(1.1);
+  }
+  
+  .skillCard p {
+    margin: 0;
+    font-size: var(--body-font-size);
+    color: var(--text-color);
+  }
+  
+  .techSkills h2 {
+    font-size: var(--heading-font-size);
+    margin-bottom: 20px;
+    color: var(--text-color);
+    text-align: left;
+  }
+  
+  .conorCoding {
+    width: 400px;
+    height: auto;
+    border-radius: 30px;
+  }
+  
