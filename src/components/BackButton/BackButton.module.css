@@ -1,0 +1,32 @@
+.backButton {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s, opacity 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .backButton:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    background-color: transparent;
+  }
+  
+  .backButton img {
+    height: 70px;
+    width: 70px;
+    align-self: center;
+    transition: filter 0.3s;
+    background-color: transparent;
+  }
+  
+  .backButton:hover img {
+    filter: invert(1) brightness(2);
+  }

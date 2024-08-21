@@ -9,11 +9,13 @@ import ExperienceCard from '../../components/ExperienceCard/ExperienceCard';
 import { ReactNode } from 'react';
 import type { Experience } from '../../types';
 import experienceStyles from './Experience.module.css';
+import BackButton from '../../components/BackButton/BackButton';
 
 const ExperienceSection = () => {
   return (
     <>
       <motion.section variants={textVariant()} className={`${experienceStyles.section} relative w-full mx-auto`}>
+       <BackButton />
         <motion.article variants={fadeIn("down", "spring", 0.1, 1)} className={experienceStyles.article}>
           <h2 className={`${styles.sectionHeadText} ${experienceStyles.headText}`}>Professional Experience.</h2>
           <motion.p className={`${styles.sectionSubText} ${experienceStyles.subText} mt-4 max-w-3xl leading-[30px]`}>

@@ -5,6 +5,7 @@ import styles from "../../styles";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { projects } from "../../data/projects";
 import { Project } from "../../types/index";
+import BackButton from "../../components/BackButton/BackButton";
 
 const Projects: React.FC<{}> = () => {
   return (
@@ -12,6 +13,7 @@ const Projects: React.FC<{}> = () => {
       variants={textVariant()}
       className="relative w-full mx-auto"
     >
+      <BackButton />
       <motion.article variants={fadeIn("down", "spring", 0.1, 1)}>
         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
         <motion.p

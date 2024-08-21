@@ -2,12 +2,14 @@ import React from 'react';
 import styles from './TechStack.module.css';
 import { techSkills } from '../../data/techSkills';
 import conorCoding from '../../assets/conorCoding.jpg';
+import BackButton from '../../components/BackButton/BackButton';
 
 const TechStack = () => {
   return (
     <section className={styles.techStackSection}>
       <div className={styles.techSkills}>
-        <h2>Skills</h2>
+        <BackButton />
+        <h2>My Skills</h2>
         <div className={styles.contentWrapper}>
           <div className={styles.skillGrid}>
             {techSkills.map(skill => (
