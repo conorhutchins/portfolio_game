@@ -1,0 +1,89 @@
+
+
+.formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-family: "Commissioner", sans-serif;
+    font-weight: 200;
+    border: 1px solid var(--border-color); /* Use a light grey or similar for border color */
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color); /* Ensure good contrast with background */
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: var(--placeholder-color); /* Use a lighter shade of the text color */
+  }
+  
+  textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 100px;
+  }
+  
+  button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--primary-color); /* Define this as a primary accent color */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:disabled {
+    background-color: var(--disabled-color); /* Use a muted color */
+    cursor: not-allowed;
+  }
+  
+  button:hover:not(:disabled) {
+    background-color: var(--contact-page-button-hover-color); /* Slightly darker shade for hover effect */
+  }
+  
+  .error {
+    color: #dc3545;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .success, .error {
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 5px;
+    font-family: "Commissioner", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .success {
+    background-color: #28a745; /* Success green */
+  }
+  
+  .error {
+    background-color: #dc3545; /* Error red */
+  }
+  
+  /* Responsive adjustments */
+  @media (min-width: 768px) {
+    input, textarea {
+      font-size: 1.125rem;
+    }
+  
+    button {
+        padding: 1rem 2rem;
+        font-family: "Commissioner", sans-serif;
+        background-color: var(--contact-page-button-bg-color);
+        color: var(--title-text-color);
+        font-size: 1.125rem;
+    }
+  }
+  

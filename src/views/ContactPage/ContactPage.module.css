@@ -1,0 +1,17 @@
+.contactPage {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: var(--background-color); /* Ensure this variable is defined */
+    color: var(--text-color); /* Ensure this variable is defined */
+  }
+  
+  .title {
+    color: var(--title-text-color);
+    font-family: "Commissioner", sans-serif;
+    font-weight: var(--contact-title-font-weight);
+    font-size: 3.75rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  

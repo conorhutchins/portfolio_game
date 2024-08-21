@@ -1,8 +1,9 @@
 :root {
   --background-color: #ffffff;
   --background-gradient: linear-gradient(135deg, #ec6d28, #36013c);
-  --text-color: white;
-  --font-family: 'Roboto', sans-serif;
+  --text-color: #000000; /* Primary text color for light mode */
+  --secondary-text-color: #555555; /* Secondary text color for light mode */
+  --font-family: 'Comissioner', sans-serif;
   --input-background: #ffffff;
   --input-text-color: #000000;
   --input-border-color: #ccc;
@@ -11,25 +12,38 @@
   --button-background-color: #ffffff;
   --button-text-color: #000000;
   --button-hover-background-color: #f2f2f2;
+  --title-text-color: #000000;
+  --project-card-bg-color:#ddd8d8;
+  --project-card-hover-bg-color: #333;
+  --input-bg-color: #ddd8d8;
+  --contact-page-button-bg-color: #ddd8d8;
+  --contact-page-button-hover-color: #c4c4c4;
+  --contact-title-font-weight: 900;
 } 
 
 [data-theme="dark"] {
   --background-color: #121212;
   --background-gradient: linear-gradient(135deg, #464444, #100909);
-  --text-color: #ffffff;
+  --text-color: #ffffff; /* Primary text color for dark mode */
+  --secondary-text-color: #aaaaaa; /* Secondary text color for dark mode */
   --input-background: #333333;
-  --input-text-color: #ffffff;
+  --input-text-color: #AAA6C3;
   --input-border-color: #555555;
   --input-focus-border-color: rgb(229, 229, 235);
   --input-focus-box-shadow: rgba(5, 134, 220, 0.961);
   --button-background-color: #444444;
   --button-text-color: #ffffff;
   --button-hover-background-color: #666666;
+  --title-text-color: #ffffff;
+  --project-card-bg-color:#1d1d1d;
+  --project-card-hover-bg-color: #333;
+  --input-bg-color: #151030;
+  --contact-page-button-bg-color: #1d1d1d;
+  --contact-page-button-hover-color: #333;
 }
 
 body {
   background-color: var(--background-color);
-  color: var(--text-color);
   font-family: var(--font-family);
   transition: background-color 0.3s, color 0.3s;
 }
