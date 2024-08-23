@@ -11,7 +11,7 @@ module.exports = {
         buttonHoverBg: 'var(--button-hover-background-color)',
       },
       fontFamily: {
-        sans: ['var(--font-family)', 'sans-serif'],
+        commissioner: ['Commissioner'],
       },
     },
   },

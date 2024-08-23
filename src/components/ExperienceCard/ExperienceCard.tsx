@@ -30,7 +30,7 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
       }
     >
       <section>
-        <h3 className="text-white text-2xl font-bold">{experience.role}</h3>
+        <h3 className="font-comissioner text-white text-3xl font-weight 900">{experience.role}</h3>
         <p className="text-secondary text-lg font-semibold m-0">
           {experience.company}
         </p>
