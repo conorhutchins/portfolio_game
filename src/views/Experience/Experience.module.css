@@ -9,13 +9,19 @@
   }
   
   .headText {
-    /* Add any specific styles for the head text here */
+    font-family: "Commissioner", sans-serif;
+    font-weight: 900;
+    color: var(--title-text-color);
+    font-size: 3.75rem;
   }
   
   .subText {
+    font-family: "Commissioner", sans-serif;
     margin-top: 1rem;
     max-width: 48rem;
+    font-size: 1.5rem;
     line-height: 1.875rem;
+    color: var(--secondary-text-color);
   }
   
   .timelineContainer {

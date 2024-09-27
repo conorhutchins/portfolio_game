@@ -15,7 +15,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className={styles.homePage}>
-      <h1>Conor Hutchins - Portfolio Site</h1>
+      <h1>Conor Hutchins Portfolio Site</h1>
       <p>👋 Hi I'm Conor, I'm a Software Engineer who specialises in <span className={styles.boldUnderlined}>Javascript</span>, <span className={styles.boldUnderlined}>Typescript</span>, <span className={styles.boldUnderlined}>ReactJS</span> and <span className={styles.boldUnderlined}>React Native</span></p>
       <form onSubmit={handleSubmit} className={styles.form}>
         <input

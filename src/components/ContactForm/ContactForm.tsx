@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { sendEmail } from '../../utils/emailService';
+import styles from './ContactForm.module.css'; // Import the CSS module
 
 interface ContactFormValues {
   name: string;
@@ -29,9 +30,9 @@ const ContactForm: React.FC = () => {
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required('Name is required'),
-    email: Yup.string().email('Invalid email address').required('Email is required'),
-    message: Yup.string().required('Message is required'),
+    name: Yup.string().required('Please provide your name'),
+    email: Yup.string().email('Invalid email address').required('I need your email address'),
+    message: Yup.string().required('Please go ahead and write a message'),
   });
 
   const handleSubmit = async (
@@ -54,7 +55,7 @@ const ContactForm: React.FC = () => {
   return (
     <>
       {feedbackMessage && (
-        <div className={feedbackMessage.includes('successfully') ? 'success' : 'error'}>
+        <div className={feedbackMessage.includes('successfully') ? styles.success : styles.error}>
           {feedbackMessage}
         </div>
       )}
@@ -65,19 +66,19 @@ const ContactForm: React.FC = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <div>
-              <Field name="name" type="text" placeholder="Enter your name here." />
-              <ErrorMessage name="name" component="div" className="error" />
+            <div className={styles.formGroup}>
+              <Field name="name" type="text" placeholder="Enter your name here." className={styles.input} />
+              <ErrorMessage name="name" component="div" className={styles.error} />
             </div>
-            <div>
-              <Field name="email" type="email" placeholder="Enter your email address here." />
-              <ErrorMessage name="email" component="div" className="error" />
+            <div className={styles.formGroup}>
+              <Field name="email" type="email" placeholder="Enter your email address here." className={styles.input} />
+              <ErrorMessage name="email" component="div" className={styles.error} />
             </div>
-            <div>
-              <Field name="message" as="textarea" placeholder="Enter your message here." />
-              <ErrorMessage name="message" component="div" className="error" />
+            <div className={styles.formGroup}>
+              <Field name="message" as="textarea" placeholder="Enter your message here." className={styles.textarea} />
+              <ErrorMessage name="message" component="div" className={styles.error} />
             </div>
-            <button type="submit" disabled={isSubmitting}>
+            <button type="submit" disabled={isSubmitting} className={styles.button}>
               Send
             </button>
           </Form>

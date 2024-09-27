@@ -1,0 +1,64 @@
+.sectionHeadText {
+  color: var(--title-text-color); /* Ensure this is using the correct variable */
+  font-family: "Commissioner", sans-serif;
+  font-weight: 900; /* font-black */
+  font-size: 2.5rem; /* Default text-[40px] */
+}
+
+.sectionSubText {
+  font-family: "Commissioner", sans-serif;
+  color: var(--secondary-text-color); /* Correct variable name for secondary text color */
+  margin-top: 1rem; /* mt-4 */
+  max-width: 48rem; /* max-w-3xl */
+  line-height: 2rem; /* leading-8 */
+}
+
+@media (min-width: 576px) { /* xs breakpoint */
+  .sectionHeadText {
+    font-size: 2.5rem; /* xs:text-[40px] */
+  }
+  
+  .sectionSubText {
+    font-size: 1.5rem; /* xs:text-[12px] */
+    letter-spacing: 0.0em;
+  }
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+  .sectionHeadText {
+    font-size: 3.125rem; /* sm:text-[50px] */
+  }
+  .sectionSubText {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .sectionHeadText {
+    font-size: 3.75rem; /* md:text-[60px] */
+  }
+  .sectionSubText {
+    font-size: 1.5rem;
+  }
+}
+
+.gridContainer {
+  margin-top: 3rem; /* mt-12 */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* gap-8 */
+  justify-items: center;
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* sm:grid-cols-2 */
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .gridContainer {
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* lg:grid-cols-3 */
+  }
+}
