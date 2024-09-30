@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
           className={styles.input}
           required
         />
-        <p>This site has been built with <span className={styles.boldUnderlined}>Typescript</span>, <span className={styles.boldUnderlined}>ReactJS</span>, <span className={styles.boldUnderlined}>ReactJS Hooks</span> and <span className={styles.boldUnderlined}>CSS Modules</span>.</p>
+        <p>This site has been built with <span className={styles.boldUnderlined}>Typescript</span>, <span className={styles.boldUnderlined}>ReactJS</span>, <span className={styles.boldUnderlined}>ReactJS Hooks</span> and <span className={styles.boldUnderlined}>CSS Modules</span></p>
         <p className={styles.howToPlay}>
           How to play<br />
           <span className={styles.instructions}>Use your mouse to move around and consume items of interest to you!</span>
