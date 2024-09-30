@@ -6,7 +6,7 @@
     justify-content: center;
     background: var(--background-gradient);
     color: var(--text-color);
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 556px;
@@ -21,6 +21,7 @@
     font-size: 3em;
     margin-bottom: 10px;
     font-weight: 700;
+    color: var(--homepage-title-text-color);
 }
 
 .homePage p {
@@ -47,7 +48,7 @@
     transition: border-color 0.3s;
     text-align: center;
     background: var(--input-background);
-    color: var(--input-text-color);
+    color: var(input-text-color);
 }
 
 .input:focus, .startButton:focus, .workExamplesLink:focus {
@@ -74,7 +75,7 @@
 
 .input::placeholder {
     text-align: center;
-    color: var(--input-text-color);
+    color: var(--homepage-input-placeholder-text-color);
 }
 
 .startButton {
