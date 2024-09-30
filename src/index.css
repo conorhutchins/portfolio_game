@@ -19,6 +19,8 @@
   --contact-page-button-bg-color: #ddd8d8;
   --contact-page-button-hover-color: #c4c4c4;
   --contact-title-font-weight: 900;
+  --homepage-input-placeholder-text-color: #555555;
+  --homepage-title-text-color: #ffffff;
 } 
 
 [data-theme="dark"] {
@@ -40,6 +42,8 @@
   --input-bg-color: #151030;
   --contact-page-button-bg-color: #1d1d1d;
   --contact-page-button-hover-color: #333;
+  --homepage-input-placeholder-text-color: #aaaaaa;
+  --homepage-title-text-color: #ffffff;
 }
 
 body {

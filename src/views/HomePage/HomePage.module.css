@@ -21,6 +21,7 @@
     font-size: 3em;
     margin-bottom: 10px;
     font-weight: 700;
+    color: var(--homepage-title-text-color);
 }
 
 .homePage p {
@@ -47,7 +48,7 @@
     transition: border-color 0.3s;
     text-align: center;
     background: var(--input-background);
-    color: var(--input-text-color);
+    color: var(input-text-color);
 }
 
 .input:focus, .startButton:focus, .workExamplesLink:focus {
@@ -74,7 +75,7 @@
 
 .input::placeholder {
     text-align: center;
-    color: var(--input-text-color);
+    color: var(--homepage-input-placeholder-text-color);
 }
 
 .startButton {
