@@ -1,8 +1,4 @@
-.verticalTimelineElement {
-    /* No specific styles needed here for now */
-  }
-  
-  .iconContainer {
+ .iconContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,4 +39,3 @@
     padding-left: 0.25rem;
     tracking-wider: wider;
   }
-  
