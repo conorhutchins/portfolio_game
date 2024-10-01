@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './HomePage.module.css';
+import AnimatedBackground from '../../components/AnimatedBackground/AnimatedBackground';
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    document.body.classList.add('homepage-background');
+    return () => {
+      document.body.classList.remove('homepage-background');
+    };
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -14,6 +22,8 @@ const HomePage: React.FC = () => {
   };
 
   return (
+    <>
+    <AnimatedBackground />
     <div className={styles.homePage}>
       <h1>Conor Hutchins Portfolio Site</h1>
       <p>👋 Hi I'm Conor, I'm a Software Engineer who specialises in <span className={styles.boldUnderlined}>Javascript</span>, <span className={styles.boldUnderlined}>Typescript</span>, <span className={styles.boldUnderlined}>ReactJS</span> and <span className={styles.boldUnderlined}>React Native</span></p>
@@ -35,6 +45,7 @@ const HomePage: React.FC = () => {
       </form>
       <a href="/work-examples" className={styles.workExamplesLink}>Go straight to work examples</a>
     </div>
+    </>
   );
 };
 

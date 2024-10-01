@@ -1,6 +1,8 @@
 :root {
-  --background-color: #ffffff;
-  --background-gradient: linear-gradient(135deg, #ec6d28, #36013c);
+  --background-color: white;
+  --background-primary-color: #0760ef;
+  --background-secondary-color: #208606;
+  --background-gradient: linear-gradient(135deg, var(--background-primary-color), var(--background-secondary-color));
   --text-color: #000000; /* Primary text color for light mode */
   --secondary-text-color: #555555; /* Secondary text color for light mode */
   --font-family: 'Comissioner', sans-serif;
@@ -25,6 +27,8 @@
 
 [data-theme="dark"] {
   --background-color: #121212;
+  --background-primary-color: #464444;
+  --background-secondary-color: #100909;
   --background-gradient: linear-gradient(135deg, #464444, #100909);
   --text-color: #ffffff; /* Primary text color for dark mode */
   --secondary-text-color: #aaaaaa; /* Secondary text color for dark mode */
