@@ -1,7 +1,7 @@
 :root {
   --background-color: white;
-  --background-primary-color: #0760ef;
-  --background-secondary-color: #208606;
+  --background-primary-color: #099b1d;
+  --background-secondary-color: #0610d4;
   --background-gradient: linear-gradient(135deg, var(--background-primary-color), var(--background-secondary-color));
   --text-color: #000000; /* Primary text color for light mode */
   --secondary-text-color: #555555; /* Secondary text color for light mode */
@@ -23,9 +23,15 @@
   --contact-title-font-weight: 900;
   --homepage-input-placeholder-text-color: #555555;
   --homepage-title-text-color: #ffffff;
+  --wave-color: rgba(0, 123, 255, 0.5);
+  --wave-color-light: rgb(243, 237, 237);
+  --wave-color-dark: rgba(9, 0, 0, 0.5);
+  --workexamples-text-color: white;
+  --wave-color-start: #eef2f3; /* Light blue gradient start */
+  --wave-color-end: #69c0ff;   /* Light blue gradient end */
 } 
 
-[data-theme="dark"] {
+body[data-theme="dark"] {
   --background-color: #121212;
   --background-primary-color: #464444;
   --background-secondary-color: #100909;
@@ -48,7 +54,11 @@
   --contact-page-button-hover-color: #333;
   --homepage-input-placeholder-text-color: #aaaaaa;
   --homepage-title-text-color: #ffffff;
+  --wave-color: rgba(38, 15, 211, 0.457); /* Cyan with some transparency */
+  --wave-color-start: #001529; /* Dark blue gradient start */
+  --wave-color-end: #1d1f22; 
 }
+
 
 body {
   background-color: var(--background-color);
