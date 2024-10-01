@@ -8,6 +8,7 @@ interface Wave {
   speed: number;
   y: number;
   color: string;
+  persistent?: boolean; // Optional property to mark persistent waves
 }
 
 const WaterBackground: React.FC = () => {
@@ -70,7 +71,7 @@ const WaterBackground: React.FC = () => {
       }
     };
 
-    // Add 4 initial waves
+    // Add 4 initial persistent waves
     for (let i = 0; i < 4; i++) {
       const initialWave: Wave = {
         phase: 0,
@@ -78,6 +79,7 @@ const WaterBackground: React.FC = () => {
         speed: Math.random() * 0.015 + 0.01,
         y: height / 2,
         color: getWaveColor(),
+        persistent: true, // Mark as persistent
       };
       addWave(initialWave);
     }
@@ -114,9 +116,10 @@ const WaterBackground: React.FC = () => {
 
         wave.phase += wave.speed;
 
-        if (wave.phase > Math.PI * 20) {
+        // Remove waves that have completed their animation if not persistent
+        if (!wave.persistent && wave.phase > Math.PI * 20) {
           waves.splice(i, 1);
-          i--;
+          i--; // Adjust index after removal
         }
       }
 
@@ -145,7 +148,7 @@ const WaterBackground: React.FC = () => {
 
     // Handle mouse clicks for waves
     const maxWaves = 20;
-    canvas.addEventListener('click', (event) => {
+    const handleClick = (event: MouseEvent) => {
       if (waves.length >= maxWaves) return;
 
       const rect = canvas.getBoundingClientRect();
@@ -161,11 +164,13 @@ const WaterBackground: React.FC = () => {
       };
 
       addWave(newWave);
-    });
+    };
+
+    canvas.addEventListener('click', handleClick);
 
     return () => {
       window.removeEventListener('resize', handleResize);
-      canvas.removeEventListener('click', () => {});
+      canvas.removeEventListener('click', handleClick);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
