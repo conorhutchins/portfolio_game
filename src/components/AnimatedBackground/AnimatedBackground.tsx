@@ -30,8 +30,8 @@ const AnimatedBackground: React.FC = () => {
     // Function to draw the pattern based on theme
     const drawPattern = () => {
       // Colors based on theme
-      const backgroundColor = isDarkMode ? '#007aff' : 'white';
-      const strokeColor = isDarkMode ? '#444' : 'black';
+      const backgroundColor = isDarkMode ? 'black' : 'white';
+      const strokeColor = isDarkMode ? '#444' : '#007aff';
 
       // Clear the pattern canvas
       patternContext.clearRect(0, 0, patternCanvas.width, patternCanvas.height);
