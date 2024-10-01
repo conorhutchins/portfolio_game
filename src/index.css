@@ -29,6 +29,7 @@
   --workexamples-text-color: white;
   --wave-color-start: #eef2f3; /* Light blue gradient start */
   --wave-color-end: #69c0ff;   /* Light blue gradient end */
+  --timeline-line-color: black;
 } 
 
 body[data-theme="dark"] {
@@ -57,6 +58,7 @@ body[data-theme="dark"] {
   --wave-color: rgba(38, 15, 211, 0.457); /* Cyan with some transparency */
   --wave-color-start: #001529; /* Dark blue gradient start */
   --wave-color-end: #1d1f22; 
+  --timeline-line-color: white;
 }
 
 

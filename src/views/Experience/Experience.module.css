@@ -2,12 +2,7 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  .article {
-    /* Add any specific styles for the article here */
-  }
-  
+  }  
   .headText {
     font-family: "Commissioner", sans-serif;
     font-weight: 900;
@@ -29,4 +24,3 @@
     display: flex;
     flex-direction: column;
   }
-  
