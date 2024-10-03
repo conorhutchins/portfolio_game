@@ -32,6 +32,7 @@
   --timeline-line-color: black;
   --project-card-title-text-color: white;
   --techstack-card-bg-color:#ddd8d8;
+  --experience-date-bg-color: #ddd8d8;
 } 
 
 body[data-theme="dark"] {
@@ -63,6 +64,7 @@ body[data-theme="dark"] {
   --timeline-line-color: white;
   --project-card-title-text-color: white;
   --techstack-card-bg-color: #1d1d1d;
+  --experience-date-bg-color: rgba(255, 255, 255, 0.1);
 }
 
 
