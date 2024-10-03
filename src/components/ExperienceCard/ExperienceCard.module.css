@@ -1,41 +1,97 @@
- .iconContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.iconContainer:hover {
+  transform: scale(1.1);
+}
+
+.logo {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.content {
+  margin-bottom: 1.5rem;
+}
+
+.role {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.company {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 1.5rem !important; /* Use !important to override any conflicting styles */
+  font-weight: 600 !important;
+  margin: 0;
+  color: #4a9fff;/* This will allow the color to be controlled by the parent element */
+}
+
+.descriptionList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.descriptionItem {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 0.95rem;
+  color: var(--secondary-text-color);
+  position: relative;
+  padding-left: 1.5rem;
+  line-height: 1.6;
+}
+
+.descriptionItem::before {
+  content: '•';;
+  left: 0;
+  padding-right: 0.5rem;
+  color: #4a9fff;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.date {
+  font-family: 'Commissioner', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--secondary-text-color);
+  margin: 0 1.5rem;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--experience-date-bg-color);
+  border-radius: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Media query for two-column layout */
+@media only screen and (min-width: 1170px) {
+  :global(.vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content .vertical-timeline-element-date),
+  :global(.vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date) {
+    left: auto !important;
+    right: 124% !important;
+    text-align: center !important;
   }
-  
-  .logo {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
+
+  :global(.vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--left .vertical-timeline-element-content .vertical-timeline-element-date),
+  :global(.vertical-timeline--two-columns .vertical-timeline-element:nth-child(odd):not(.vertical-timeline-element--right) .vertical-timeline-element-content .vertical-timeline-element-date) {
+    right: auto !important;
+    left: 124% !important;
+    text-align: center !important;
   }
-  
-  .role {
-    color: white;
-    font: 'Comissioner', sans-serif;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .company {
-    color: var(--secondary-color);
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0;
-  }
-  
-  .descriptionList {
-    list-style-type: disc;
-    margin-top: 1.25rem;
-    margin-left: 1.25rem;
-    space-y: 0.5rem;
-  }
-  
-  .descriptionItem {
-    color: var(--white-100-color);
-    font-size: 14px;
-    padding-left: 0.25rem;
-    tracking-wider: wider;
-  }
+}

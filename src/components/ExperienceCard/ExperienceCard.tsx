@@ -1,22 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { Experience } from '../../types';
 import { VerticalTimelineElement } from 'react-vertical-timeline-component';
 import { useTheme } from '../../theme/ThemeContext';
+import styles from './ExperienceCard.module.css';
 
 const ExperienceCard = ({ experience }: { experience: Experience }) => {
   const { isDarkMode } = useTheme();
-  const backgroundColor = isDarkMode ? '#2a2a2a' : '#f0f0f0';
+  const backgroundColor = isDarkMode ? '#2a2a2a' : 'linear-gradient(135deg, #ddd8d8, #1ac9e0)';
   const textColor = isDarkMode ? '#ffffff' : '#333333';
 
   return (
     <VerticalTimelineElement
-      contentStyle={{ 
-        background: backgroundColor, 
-        color: textColor, 
-        font: "inherit" 
+      contentStyle={{
+        background: backgroundColor,
+        boxShadow: '0 3px 0 #3a3a3a',
+        borderRadius: '15px',
+        padding: '2rem',
+        color: textColor, // This will set the default text color for the content
       }}
       contentArrowStyle={{ borderRight: `10px solid ${backgroundColor}` }}
       date={`${experience.startDate} - ${experience.endDate}`}
+      dateClassName={styles.date}
       iconStyle={{
         background: '#fff',
         display: 'flex',
@@ -25,45 +29,27 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
         width: '60px',
         height: '60px',
         marginLeft: '-30px',
-        border: '3px solid black',
-
+        border: '3px solid #3a3a3a',
+        boxShadow: '0 0 0 4px #fff',
       }}
       icon={
-        <div style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          background: experience.logoBg,
-          borderRadius: '50%',
-        }}>
+        <div className={styles.iconContainer} style={{ background: experience.logoBg }}>
           <img
             src={experience.logo}
             alt={`${experience.company} logo`}
-            style={{
-              width: '70%',
-              height: '70%',
-              objectFit: 'contain',
-            }}
+            className={styles.logo}
           />
         </div>
       }
     >
-      <section>
-        <h3 className={`font-comissioner text-3xl font-bold`} style={{ color: textColor }}>
-          {experience.role}
-        </h3>
-        <p className="text-lg font-semibold m-0" style={{ color: isDarkMode ? '#b3b3b3' : '#666666' }}>
-          {experience.company}
-        </p>
+      <section className={styles.content}>
+        <h3 className={styles.role}>{experience.role}</h3>
+        <p className={styles.company}>{experience.company}</p>
       </section>
 
-      <ul className="list-disc mt-5 ml-5 space-y-2">
+      <ul className={styles.descriptionList}>
         {experience.description.map((desc, index) => (
-          <li key={index} className="text-sm pl-1 tracking-wide" style={{ color: textColor }}>
-            {desc}
-          </li>
+          <li key={index} className={styles.descriptionItem}>{desc}</li>
         ))}
       </ul>
     </VerticalTimelineElement>
