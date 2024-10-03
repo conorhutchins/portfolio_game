@@ -28,24 +28,37 @@ const ProjectCard = ({ proj, index }: { proj: Project; index: number }) => {
             className={styles.image}
           />
           <div className={styles.links}>
-            <a
-              href={proj.repo}
-              className={styles.linkButton}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Repository"
-            >
-              <FaGithub size={18} />
-            </a>
-            <a
-              href={proj.link}
-              className={styles.linkButton}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Live Demo"
-            >
-              <BiLinkExternal size={18} />
-            </a>
+            {proj.repo ? (
+              <a
+                href={proj.repo}
+                className={styles.linkButton}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Repository"
+              >
+                <FaGithub size={18} />
+              </a>
+            ) : (
+              <span className={`${styles.linkButton} ${styles.disabledLink}`}>
+                <FaGithub size={18} />
+              </span>
+            )}
+
+            {proj.link ? (
+              <a
+                href={proj.link}
+                className={styles.linkButton}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Live Demo"
+              >
+                <BiLinkExternal size={18} />
+              </a>
+            ) : (
+              <span className={`${styles.linkButton} ${styles.disabledLink}`}>
+                <BiLinkExternal size={18} />
+              </span>
+            )}
           </div>
         </figure>
         <article className={styles.content}>
@@ -61,6 +74,12 @@ const ProjectCard = ({ proj, index }: { proj: Project; index: number }) => {
             )}
           </p>
         </article>
+
+        {proj.comingSoon && (
+          <div className={styles.comingSoonOverlay}>
+            <p>Coming Soon</p>
+          </div>
+        )}
       </Tilt>
     </motion.div>
   );
