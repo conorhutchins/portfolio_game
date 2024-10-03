@@ -37,7 +37,7 @@
   }
   
   .skillCard {
-    background-color: var(--project-card-bg-color);
+    background-color: var(--techstack-card-bg-color);
     padding: var(--card-padding);
     border-radius: var(--card-border-radius);
     display: flex;

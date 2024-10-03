@@ -31,6 +31,7 @@
   --wave-color-end: #69c0ff;   /* Light blue gradient end */
   --timeline-line-color: black;
   --project-card-title-text-color: white;
+  --techstack-card-bg-color:#ddd8d8;
 } 
 
 body[data-theme="dark"] {
@@ -61,6 +62,7 @@ body[data-theme="dark"] {
   --wave-color-end: #1d1f22; 
   --timeline-line-color: white;
   --project-card-title-text-color: white;
+  --techstack-card-bg-color: #1d1d1d;
 }
 
 
