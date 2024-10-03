@@ -37,4 +37,5 @@ export interface LabelledCell {
     link: string;
     repo: string;
     techStack: string[];
+    comingSoon?: boolean;
   };

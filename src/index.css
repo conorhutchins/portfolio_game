@@ -15,7 +15,7 @@
   --button-text-color: #000000;
   --button-hover-background-color: #f2f2f2;
   --title-text-color: #000000;
-  --project-card-bg-color:#ddd8d8;
+  --project-card-bg-color:linear-gradient(135deg, #ddd8d8, #1ac9e0);
   --project-card-hover-bg-color: #333;
   --input-bg-color: #ddd8d8;
   --contact-page-button-bg-color: #ddd8d8;
@@ -30,6 +30,7 @@
   --wave-color-start: #eef2f3; /* Light blue gradient start */
   --wave-color-end: #69c0ff;   /* Light blue gradient end */
   --timeline-line-color: black;
+  --project-card-title-text-color: white;
 } 
 
 body[data-theme="dark"] {
@@ -59,6 +60,7 @@ body[data-theme="dark"] {
   --wave-color-start: #001529; /* Dark blue gradient start */
   --wave-color-end: #1d1f22; 
   --timeline-line-color: white;
+  --project-card-title-text-color: white;
 }
 
 
