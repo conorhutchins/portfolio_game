@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import MainCell from '../../components/MainCell/MainCell';
 import ConsumableCell from '../../components/ConsumableCell/ConsumableCell';
-import Modal from '../../components/Modal/Modal';
 import styles from './GameField.module.css';
 import { useCells } from '../../hooks/useCells';
 import { initialLabelledCells } from '../../data/initialLabelledCells';
@@ -66,9 +65,6 @@ const GameField: React.FC = () => {
           {...('label' in cell && { label: cell.label })}
         />
       ))}
-      {consumedByMainCell && (
-        <Modal content={`You consumed: ${consumedByMainCell.label}`} onClose={() => setConsumedByMainCell(null)} />
-      )}
     </div>
   );
 };
