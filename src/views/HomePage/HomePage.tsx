@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
         </p>
         <button type="submit" className={styles.startButton}>START</button>
       </form>
-      <a href="/work-examples" className={styles.workExamplesLink}>Go straight to work examples</a>
+      <a href="/projects" className={styles.workExamplesLink}>Go straight to work examples</a>
     </div>
     </>
   );
