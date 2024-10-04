@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navigation from './components/Navigation/Navigation';
 import HomePage from './views/HomePage/HomePage';
 import GameField from './views/GameField/GameField';
 import EndSummary from './views/EndSummary/EndSummary';
 import ContactPage from './views/ContactPage/ContactPage';
-import ThemeToggle from './components/ThemeToggle/ThemeToggle';
 import Projects from './views/Projects/Projects';
 import TechStack from './views/TechStack/TechStack';
 import { ThemeProvider } from './theme/ThemeContext';
-import  ExperienceSection from './views/Experience/Experience';
+import ExperienceSection from './views/Experience/Experience';
 
 import './App.css';
 
@@ -17,9 +17,9 @@ const App: React.FC = () => {
     <ThemeProvider>
       <Router>
         <div className="app">
-          <i className="fas fa-sun"></i>
-          <i className="fas fa-moon"></i>
-          <ThemeToggle />
+          {/* Navigation Bar */}
+          <Navigation />
+          {/* Main App Routes */}
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/game" element={<GameField />} />

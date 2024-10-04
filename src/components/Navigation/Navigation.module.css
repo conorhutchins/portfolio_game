@@ -1,0 +1,66 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--navbar-bg-color);
+    z-index: 999; /* Ensure navbar is on top */
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.logo {
+    z-index: 1; /* Ensure logo is on top */
+}
+
+.logo img {
+    height: 10rem;
+    position: relative;
+}
+
+.menuIcon {
+    display: block;
+    cursor: pointer;
+    z-index: 2; /* Ensure hamburger icon is above other elements */
+    padding: 10px;
+    background-color: lightgray; /* To make the area of the hamburger icon visible */
+}
+
+.menuIconLine {
+    width: 30px;
+    height: 5px;
+    background-color: black; /* Ensure the lines are visible */
+    margin: 5px 0; /* Spacing between the lines */
+    transition: all 0.3s ease;
+}
+
+.navList {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navList.active {
+    display: flex;
+}
+
+.navItem {
+    margin: 10px 0;
+}
+
+.navLink {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.themeToggle {
+    margin-left: 20px;
+}

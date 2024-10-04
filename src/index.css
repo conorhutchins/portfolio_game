@@ -33,6 +33,7 @@
   --project-card-title-text-color: white;
   --techstack-card-bg-color:#ddd8d8;
   --experience-date-bg-color: #ddd8d8;
+  --navbar-bg-color: #ffffff;
 } 
 
 body[data-theme="dark"] {
@@ -65,6 +66,7 @@ body[data-theme="dark"] {
   --project-card-title-text-color: white;
   --techstack-card-bg-color: #1d1d1d;
   --experience-date-bg-color: rgba(255, 255, 255, 0.1);
+  --navbar-bg-color: black;
 }
 
 
