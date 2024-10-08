@@ -34,21 +34,24 @@ body, html {
 }
 
 .menuIcon {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px; /* Set a width for the icon */
+    height: 30px; /* Set a height for the icon */
     cursor: pointer;
     z-index: 2;
-    padding: 10px;
-    background-color: lightgray;
     margin-left: 20px;
-}
+    background-color: transparent; /* Make background transparent */
+    padding: 0; /* Remove padding to avoid extra space */
+  }
 
-.menuIconLine {
-    width: 30px;
-    height: 5px;
-    background-color: black;
-    margin: 5px 0;
+  .menuIconLine {
+    width: 100%; /* Full width of the parent */
+    height: 4px; /* Thickness of the lines */
+    background-color: var(--text-color); /* Use the text color variable */
     transition: all 0.3s ease;
-}
+  }
 
 .navList {
     display: none;
