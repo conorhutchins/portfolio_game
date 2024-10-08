@@ -14,4 +14,9 @@
     text-align: center;
     margin-bottom: 2rem;
   }
-  
+  .contactBackButton {
+    position: absolute;
+    top: 50%;  /* Example for positioning the button at 50% height */
+    left: 30px;
+    transform: translateY(-50%);
+  }

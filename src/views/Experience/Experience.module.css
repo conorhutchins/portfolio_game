@@ -19,12 +19,21 @@
   font-size: 1.5rem;
   line-height: 1.875rem;
   color: var(--secondary-text-color);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .timelineContainer {
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
+}
+.experienceBackButton {
+  position: absolute;
+  top: 20%;
+  left: 30px;
+  transform: translateY(-50%);
 }
 
 /* Additional styles to replace Tailwind classes */

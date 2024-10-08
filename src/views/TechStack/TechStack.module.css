@@ -87,3 +87,9 @@
     margin-bottom: 0px !important;
     font-weight: 900;
   }
+  .techStackBackButton {
+    position: absolute;
+    top: 50%;  /* Example for positioning the button at 50% height */
+    left: 30px;
+    transform: translateY(-50%);
+  }

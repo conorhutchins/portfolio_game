@@ -8,8 +8,10 @@ const TechStack = () => {
   return (
     <section className={styles.techStackSection}>
       <div className={styles.techSkills}>
-        <BackButton />
-        <h2 className= {styles.title}>My Skills</h2>
+        <div className={styles.techStackBackButton}>
+          <BackButton />
+        </div> 
+        <h2 className={styles.title}>My Skills</h2>
         <div className={styles.contentWrapper}>
           <div className={styles.skillGrid}>
             {techSkills.map(skill => (

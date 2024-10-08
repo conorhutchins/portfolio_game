@@ -11,6 +11,9 @@
   margin-top: 1rem;
   max-width: 48rem;
   line-height: 2rem;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .gridContainer {
@@ -25,6 +28,13 @@
   padding-left: 2rem;
   padding-bottom: 2rem;
   -webkit-overflow-scrolling: touch;
+}
+
+.projectsBackButton {
+  position: absolute;
+  top: 20%;
+  left: 30px;
+  transform: translateY(-50%);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
