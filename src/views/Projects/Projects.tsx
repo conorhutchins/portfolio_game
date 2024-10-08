@@ -13,7 +13,7 @@ const Projects: React.FC<{}> = () => {
       variants={textVariant()}
       className="relative w-full mx-auto"
     >
-      <BackButton />
+      <div className={styles.projectsBackButton}><BackButton /> </div>
       <motion.article variants={fadeIn("down", "spring", 0.1, 1)}>
         <h2 className={styles.sectionHeadText}>Projects</h2>
         <motion.p className={styles.sectionSubText}>

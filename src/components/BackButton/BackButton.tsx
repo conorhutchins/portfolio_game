@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import backButton from '../../assets/backButton.svg';
+import { IoArrowBackCircleSharp, IoArrowBackCircleOutline } from 'react-icons/io5';
 import styles from './BackButton.module.css';
+import { useTheme } from '../../theme/ThemeContext';
 
 const BackButton: React.FC = () => {
   const navigate = useNavigate();
+  const { isDarkMode }  = useTheme()
 
   const handleClick = () => {
     navigate(-1);
@@ -12,7 +14,7 @@ const BackButton: React.FC = () => {
 
   return (
     <button onClick={handleClick} className={styles.backButton}>
-      <img src={backButton} alt="Back button" className={styles.backButtonImage}/>
+     { isDarkMode ? <IoArrowBackCircleOutline size={50} /> : <IoArrowBackCircleSharp size={50} /> }
     </button>
   );
 };
