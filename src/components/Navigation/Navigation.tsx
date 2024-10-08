@@ -14,6 +14,11 @@ const Navigation: React.FC = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Close the menu when a navigation item is clicked
+  const handleNavItemClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
@@ -25,18 +30,44 @@ const Navigation: React.FC = () => {
         </div>
 
         {/* Logo */}
-        <Link to="/" className={styles.logo}>
+        <Link to="/" className={styles.logo} onClick={handleNavItemClick}>
           {/* Ensure the correct logo is displayed based on the theme */}
           <img src={isDarkMode ? nameLogoDark : nameLogoLight} alt="logo" />
         </Link>
 
         {/* Navigation Links */}
         <ul className={`${styles.navList} ${isMenuOpen ? styles.active : ''}`}>
-          <li className={styles.navItem}><Link to="/experience" className={styles.navLink}>Experience</Link></li>
-          <li className={styles.navItem}><Link to="/projects" className={styles.navLink}>Projects</Link></li>
-          <li className={styles.navItem}><Link to="/contact" className={styles.navLink}>Contact</Link></li>
-          <li className={styles.navItem}><Link to="/techstack" className={styles.navLink}>Tech Stack</Link></li>
-          <li className={styles.navItem}><Link to="/cv" className={styles.navLink}>C.V</Link></li>
+          <li className={styles.navItem}>
+            <Link to="/experience" className={styles.navLink} onClick={handleNavItemClick}>
+              Experience
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link to="/projects" className={styles.navLink} onClick={handleNavItemClick}>
+              Projects
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link to="/contact" className={styles.navLink} onClick={handleNavItemClick}>
+              Contact
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <Link to="/techstack" className={styles.navLink} onClick={handleNavItemClick}>
+              Tech Stack
+            </Link>
+          </li>
+          <li className={styles.navItem}>
+            <a
+              href="https://docs.google.com/document/d/1_mCPPCm-o1bl1O-s_qwoy6YYP0L4V-Ty4BldaSQCDis/edit?usp=sharing"
+              className={styles.navLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleNavItemClick}
+            >
+              C.V
+            </a>
+          </li>
         </ul>
 
         {/* Theme Toggle */}
