@@ -6,6 +6,9 @@ import styles from './Navigation.module.css';
 import nameLogoLight from '../../assets/nameLogoLight.png';
 import nameLogoDark from '../../assets/nameLogoDark.png';
 
+// Import icons from react-icons
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isDarkMode } = useTheme();
@@ -31,9 +34,35 @@ const Navigation: React.FC = () => {
 
         {/* Logo */}
         <Link to="/" className={styles.logo} onClick={handleNavItemClick}>
-          {/* Ensure the correct logo is displayed based on the theme */}
           <img src={isDarkMode ? nameLogoDark : nameLogoLight} alt="logo" />
         </Link>
+
+        {/* GitHub and LinkedIn Icons */}
+        {!isMenuOpen && (
+          <div className={styles.socialIcons}>
+            <a
+              href="https://github.com/conorhutchins"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialIconLink}
+            >
+              <FaGithub className={styles.socialIcon} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/conorhutchins/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.socialIconLink}
+            >
+              <FaLinkedin className={styles.socialIcon} />
+            </a>
+          </div>
+        )}
+
+        {/* Theme Toggle */}
+        <div className={styles.themeToggle}>
+          <ThemeToggle />
+        </div>
 
         {/* Navigation Links */}
         <ul className={`${styles.navList} ${isMenuOpen ? styles.active : ''}`}>
@@ -69,11 +98,6 @@ const Navigation: React.FC = () => {
             </a>
           </li>
         </ul>
-
-        {/* Theme Toggle */}
-        <div className={styles.themeToggle}>
-          <ThemeToggle />
-        </div>
       </div>
     </nav>
   );

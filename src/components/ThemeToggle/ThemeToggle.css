@@ -1,7 +1,7 @@
 .switch-container {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 1.25em;
+    right: 1.5em;
     display: flex;
     align-items: center;
     background: #222;
