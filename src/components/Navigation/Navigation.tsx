@@ -32,7 +32,6 @@ const Navigation: React.FC = () => {
 
         {/* Navigation Links */}
         <ul className={`${styles.navList} ${isMenuOpen ? styles.active : ''}`}>
-          <li className={styles.navItem}><Link to="/" className={styles.navLink}>Home</Link></li>
           <li className={styles.navItem}><Link to="/experience" className={styles.navLink}>Experience</Link></li>
           <li className={styles.navItem}><Link to="/projects" className={styles.navLink}>Projects</Link></li>
           <li className={styles.navItem}><Link to="/contact" className={styles.navLink}>Contact</Link></li>
