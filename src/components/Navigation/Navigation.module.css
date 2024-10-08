@@ -1,0 +1,153 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    background-color: var(--navbar-trans-bg-color);
+    top: 0px;
+    height: 10vh;
+}
+
+.logo {
+    z-index: 1;
+    margin-right: 2rem;
+    position: relative;
+}
+
+.logo img {
+    height: 10rem;
+    position: relative;
+}
+
+.menuIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 40px; /* Set a width for the icon */
+    height: 30px; /* Set a height for the icon */
+    cursor: pointer;
+    z-index: 2;
+    margin-left: 20px;
+    background-color: transparent; /* Make background transparent */
+    padding: 0; /* Remove padding to avoid extra space */
+  }
+
+.menuIconLine {
+  width: 100%; /* Full width of the parent */
+  height: 4px; /* Thickness of the lines */
+  background-color: var(--text-color); /* Use the text color variable */
+  transition: all 0.3s ease;
+}
+
+.navList {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+}
+
+.navList.active {
+    font-family: 'Commissioner', sans-serif;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+    align-items: center;
+    width: 100vw; /* Full screen width */
+    height: 100vh; /* Full screen height */
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--navbar-solid-bg-color); /* Background to cover whole screen */
+    z-index: 1;
+}
+
+.navItem {
+    margin: 10px 0; /* Adjust spacing between items */
+}
+
+.navLink {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.navLink:hover {
+    color: var(--button-hover-background-color);
+}
+
+.themeToggle {
+    margin-left: auto;
+}
+
+/* Hide the logo image when the nav is active */
+.navList.active ~ .logo img {
+    display: none;
+}
+
+/* Keep the menuIcon visible and in the same position */
+.navList.active ~ .menuIcon {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+/* Media queries for different screen sizes */
+@media (max-width: 1200px) {
+    .logo {
+        margin-right: 8px;
+    }
+    .menuIcon {
+        margin-left: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .logo {
+        margin-right: 6px;
+    }
+    .menuIcon {
+        margin-left: 6px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navList {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .navList.active {
+        flex-direction: column;
+    }
+    .logo {
+        margin-right: 4px;
+    }
+    .menuIcon {
+        margin-left: 4px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        margin-right: 2px;
+    }
+    .menuIcon {
+        margin-left: 2px;
+    }
+}
