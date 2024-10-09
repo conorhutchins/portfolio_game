@@ -35,6 +35,7 @@
   --experience-date-bg-color: #ddd8d8;
   --navbar-trans-bg-color: rgba(252, 248, 248, 0.9);
   --navbar-solid-bg-color: white;
+  --homepage-object-bg-color: #f2f2f2;
 } 
 
 body[data-theme="dark"] {
@@ -69,6 +70,7 @@ body[data-theme="dark"] {
   --experience-date-bg-color: rgba(255, 255, 255, 0.1);
   --navbar-trans-bg-color: rgba(0, 0, 0, 0.9);
   --navbar-solid-bg-color: black;
+  --homepage-object-bg-color: #1d1d1d;
 }
 
 

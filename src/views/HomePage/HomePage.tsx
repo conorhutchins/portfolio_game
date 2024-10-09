@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './HomePage.module.css';
-import AnimatedBackground from '../../components/AnimatedBackground/AnimatedBackground';
-import WaterBackground from '../../components/WaterBackground/WaterBackground';
+import CoolObject from '../../components/CoolObject/CoolObject';
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -24,28 +23,52 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-    <WaterBackground />
-    <div className={styles.homePage}>
-      <h1>Conor Hutchins Portfolio Site</h1>
-      <p>👋 Hi I'm Conor, I'm a Software Engineer who specialises in <span className={styles.boldUnderlined}>Javascript</span>, <span className={styles.boldUnderlined}>Typescript</span>, <span className={styles.boldUnderlined}>ReactJS</span> and <span className={styles.boldUnderlined}>React Native</span></p>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Enter your name..."
-          className={styles.input}
-          required
-        />
-        <p>This site has been built with <span className={styles.boldUnderlined}>Typescript</span>, <span className={styles.boldUnderlined}>ReactJS</span>, <span className={styles.boldUnderlined}>ReactJS Hooks</span> and <span className={styles.boldUnderlined}>CSS Modules</span></p>
-        <p className={styles.howToPlay}>
-          How to play<br />
-          <span className={styles.instructions}>Use your mouse to move around and consume items of interest to you!</span>
+      {/* CoolObject as a full-screen background */}
+      <div className={styles.homePageCoolObject}>
+        <CoolObject />
+      </div>
+
+      {/* Main content overlaid on top */}
+      <div className={styles.homePageContent}>
+        <h1>Conor Hutchins Portfolio Site</h1>
+        <p>
+          👋 Hi I'm Conor, I'm a Software Engineer who specialises in{' '}
+          <span className={styles.boldUnderlined}>Javascript</span>,{' '}
+          <span className={styles.boldUnderlined}>Typescript</span>,{' '}
+          <span className={styles.boldUnderlined}>ReactJS</span> and{' '}
+          <span className={styles.boldUnderlined}>React Native</span>
         </p>
-        <button type="submit" className={styles.startButton}>START</button>
-      </form>
-      <a href="/projects" className={styles.workExamplesLink}>Go straight to work examples</a>
-    </div>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter your name..."
+            className={styles.input}
+            required
+          />
+          <p>
+            This site has been built with{' '}
+            <span className={styles.boldUnderlined}>Typescript</span>,{' '}
+            <span className={styles.boldUnderlined}>ReactJS</span>,{' '}
+            <span className={styles.boldUnderlined}>ReactJS Hooks</span> and{' '}
+            <span className={styles.boldUnderlined}>CSS Modules</span>
+          </p>
+          <p className={styles.howToPlay}>
+            How to play
+            <br />
+            <span className={styles.instructions}>
+              Use your mouse to move around and consume items of interest to you!
+            </span>
+          </p>
+          <button type="submit" className={styles.startButton}>
+            START
+          </button>
+        </form>
+        <a href="/projects" className={styles.workExamplesLink}>
+          Go straight to work examples
+        </a>
+      </div>
     </>
   );
 };
