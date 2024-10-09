@@ -8,7 +8,7 @@ interface CSSPropertiesWithVars extends React.CSSProperties {
 
 const CoolObject: React.FC = () => {
   const items = [];
-  for (let i = 1; i <= 20; i++) { // Start from 1
+  for (let i = 1; i <= 20; i++) {
     items.push(
       <div
         key={i}
@@ -20,7 +20,6 @@ const CoolObject: React.FC = () => {
 
   return (
     <section className={styles.section}>
-      <p>Some text</p>
       <div className={styles.container}>{items}</div>
     </section>
   );

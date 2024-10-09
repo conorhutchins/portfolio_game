@@ -11,14 +11,14 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #000;
+    background-color: var(--background-color);
     overflow: hidden;
   }
   
   .container {
     position: absolute;
     top: 20%;
-    height: 90%;
+    height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,12 +27,12 @@
   .item {
     position: absolute;
     background-color: transparent;
-    width: calc((var(--i) + 1) * 2.5vmin); /* Adjusted calculation */
+    width: calc((var(--i) + 1) * 2.5vmin); /* was 2.5 */
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 0.9vmin solid rgb(0, 200, 255);
+    border: 0.5vmin solid rgb(0, 200, 255); /* was 0.9vmin */
     transform-style: preserve-3d;
-    transform: rotateX(70deg) translateZ(50px);
+    transform: rotateX(70deg) translateZ(30px);
     animation: move 3s ease-in-out infinite;
     animation-delay: calc(var(--i) * 0.08s);
     box-shadow: 0 0 15px rgba(124, 124, 124);

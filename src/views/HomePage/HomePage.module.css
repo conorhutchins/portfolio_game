@@ -1,46 +1,68 @@
-.homePage {
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Container for the CoolObject background */
+  .homePageCoolObject {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Ensure it's behind the content */
+    overflow: hidden;
+  }
+  
+  /* Container for the main content */
+  .homePageContent {
     font-family: "Commissioner", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--background-gradient);
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background to distinguish content */
     color: var(--text-color);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 556px;
-    margin: auto;
-    height: 50vh;
-    position: absolute;
-    top: 25%;
-    left: 35%;
-}
-
-.homePage h1 {
+    width: 80%;
+    max-width: 800px;
+    margin: 5% auto;
+    position: relative;
+    z-index: 1; /* Ensure it's above the background */
+  }
+  
+  /* Header styles */
+  .homePageContent h1 {
     font-size: 3em;
     margin-bottom: 10px;
     font-weight: 700;
     color: var(--homepage-title-text-color);
-}
-
-.homePage p {
+    text-align: center;
+  }
+  
+  /* Paragraph styles */
+  .homePageContent p {
     font-size: 1em;
     margin: 10px 0;
     text-align: center;
     font-weight: 300;
     color: white;
-}
-
-.form {
+  }
+  
+  /* Form styles */
+  .form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     padding-top: 10px;
-}
-
-.input {
+  }
+  
+  /* Input styles */
+  .input {
     padding: 0.5rem;
     font-size: 1em;
     border-radius: 4px;
@@ -49,74 +71,71 @@
     transition: border-color 0.3s;
     text-align: center;
     background: var(--input-background);
-    color: var(input-text-color);
-}
-
-.input:focus, .startButton:focus, .workExamplesLink:focus {
+    color: var(--input-text-color);
+  }
+  
+  .input:focus {
     border-color: var(--input-focus-border-color);
     outline: none;
     box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
-}
-
-.startButton:focus, .workExamplesLink:focus {
-    font-size: 1em;
-    border-radius: 4px;
-    border: 1px solid var(--input-border-color);
-    width: 15em;
-    text-align: center;
-    background: var(--input-background);
-    color: var(--input-text-color)
-}
-
-.input:disabled {
-    background-color: var(--input-background);
-    cursor: not-allowed;
-    opacity: 0.65;
-}
-
-.input::placeholder {
-    text-align: center;
+  }
+  
+  .input::placeholder {
     color: var(--homepage-input-placeholder-text-color);
-}
-
-.startButton {
+  }
+  
+  /* Button styles */
+  .startButton {
     padding: 1em 2em;
     background-color: var(--button-background-color);
     color: var(--button-text-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-family: 'Comissioner', sans-serif;
+    font-family: 'Commissioner', sans-serif;
     font-size: 1em;
     font-weight: 900;
     width: 15em;
     text-align: center;
-}
-
-.startButton:hover {
+  }
+  
+  .startButton:hover {
     background-color: var(--button-hover-background-color);
-}
-
-.workExamplesLink {
+  }
+  
+  .startButton:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
+  }
+  
+  /* Link styles */
+  .workExamplesLink {
     margin-top: 20px;
     margin-bottom: 20px;
     font-size: 1em;
     color: var(--workexamples-text-color);
     text-decoration: underline;
     cursor: pointer;
-}
-
-.workExamplesLink:hover {
+  }
+  
+  .workExamplesLink:hover {
     color: var(--button-hover-background-color);
-}
-
-.howToPlay,
-.instructions {
+  }
+  
+  .workExamplesLink:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
+  }
+  
+  /* Additional text styles */
+  .howToPlay,
+  .instructions {
     margin: 0;
     padding: 0;
-}
-
-.boldUnderlined {
+  }
+  
+  .boldUnderlined {
     font-weight: 600;
     text-decoration: underline;
-}
+  }
+  
