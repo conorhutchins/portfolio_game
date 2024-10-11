@@ -70,10 +70,11 @@
 }
 
 .techSkills h2 {
-  font-size: var(--heading-font-size);
+  font-size: 60px;
   margin-bottom: 20px;
   color: var(--text-color);
-  text-align: left;
+  text-align: center;
+  padding-bottom: 1.5em;
 }
 
 .conorCoding {
@@ -86,6 +87,7 @@
   font-family: "Commissioner", sans-serif;
   margin-bottom: 0px !important;
   font-weight: 900;
+  
 }
 
 .techStackBackButton {
@@ -111,7 +113,9 @@
     flex-direction: column;
     align-items: center;
   }
-
+  .techStackSection {
+    padding-top: 20px;
+  }
   .contentWrapper {
     flex-direction: column;
     align-items: center;
@@ -120,13 +124,15 @@
 
   .skillGrid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    grid-template-columns: repeat(3, 1fr); /* 4 items per row */
     gap: var(--grid-gap);
     justify-content: center;
   }
 
-  .skillCard p {
-    font-size: 12px;
+  .skillCard {
+    width: 90px; /* Shrink the skill cards */
+    height: auto;
+    padding: 12px; /* Adjust padding to match smaller cards */
   }
 
   .skillCard img {
@@ -134,8 +140,8 @@
     height: 40px; /* Adjust icon size accordingly */
   }
 
-  .techStackSection {
-    padding: 0px;
+  .skillCard p {
+    font-size: 13px;
   }
 
   /* Center the last row with items */
@@ -147,8 +153,8 @@
   .conorCoding {
     width: 100%;  /* Use the full width of the container */
     height: auto;
-    max-height: 250px;  /* Adjust the height to limit the image size */
-    object-fit: cover;  /* Crop the top empty space */
+    max-height: 180px;  /* Adjust the height to limit the image size */
+    object-fit: cover;
     margin-top: 10px;
     border-radius: 20px;
   }
@@ -160,7 +166,7 @@
 }
 
 /* Medium phones */
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 534px) {
   .title {
     text-align: center;
     margin-left: auto;
@@ -216,7 +222,7 @@
   .conorCoding {
     width: 100%;  /* Use the full width of the container */
     height: auto;
-    max-height: 200px;  /* Adjust the height to limit the image size */
+    max-height: 180px;  /* Adjust the height to limit the image size */
     object-fit: cover;
     margin-top: 10px;
     border-radius: 20px;
@@ -230,57 +236,6 @@
 
 /* Adjust grid for screen sizes between 535px and 767px */
 @media (min-width: 535px) and (max-width: 767px) {
-  .skillGrid {
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-    gap: var(--grid-gap);
-    justify-content: center;
-  }
-
-  /* Center the last row with only 2 items */
-  .skillGrid > :nth-last-child(2) {
-    grid-column: 2 / 3; /* Start in slot 2 */
-  }
-  .skillGrid > :nth-last-child(1) {
-    grid-column: 3 / 4; /* Start in slot 3 */
-  }
-}
-
-/* Large phones and small tablets */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .skillGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: var(--grid-gap);
-    justify-content: center;
-  }
-
-  /* Center the last row with only 1 items */
-  .skillGrid > :nth-last-child(1) {
-    grid-column: 2 / 3; /* Start in slot 2 */
-  }
-  .conorCoding {
-    width: auto;
-    height: 500px;
-    max-height: 250px;
-    object-fit: cover;
-    margin-top: 10px;
-    border-radius: 25px;
-  }
-
-  .title {
-  padding-bottom: 1em
-  }
-}
-
-/* Tablets and portrait desktops */
-@media (min-width: 1025px) and (max-width: 1440px) {
-  .skillGrid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 items per row */
-    gap: var(--grid-gap);
-    justify-content: center;
-  }
-
   .title {
     text-align: center;
     margin-left: auto;
@@ -290,34 +245,160 @@
     padding-bottom: 20px;
   }
 
+  .techSkills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .techStackSection {
+    padding-top: 20px;
+  }
+
+  .contentWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .skillGrid {
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: var(--grid-gap);
+    justify-content: center;
+  }
+
+  .skillCard {
+    width: 90px; /* Shrink the skill cards */
+    height: auto;
+    padding: 12px; /* Adjust padding to match smaller cards */
+  }
+
+  .skillCard img {
+    width: 80%; /* Shrink the icons */
+    height: 80%; /* Adjust icon size accordingly */
+  }
+
+  .skillCard p {
+    font-size: 13px;
+  }
+
+/* Center the last row with only 2 items */
+.skillGrid > :nth-last-child(2) {
+  grid-column: 2 / 3; /* Start in slot 2 */
+}
+.skillGrid > :nth-last-child(1) {
+  grid-column: 3 / 4; /* Start in slot 3 */
+}
+  .conorCoding {
+    width: 100%;  /* Use the full width of the container */
+    height: auto;
+    max-height: 230px;  /* Adjust the height to limit the image size */
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 20px;
+  }
+
+  .techStackBackButton {
+    top: 15%;
+    left: 0%;
+  }
+
+  }
+
+
+/* Large phones and small tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .skillGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ensure 5 items per row */
+    gap: var(--grid-gap);
+    justify-items: center; /* Make sure items are centered in their columns */
+  }
+    /* Center the last row with items */
+    .skillGrid > :nth-last-child(1) {
+      grid-column: 2;
+    }
+  
+  .conorCoding {
+    width: auto;
+    height: 400px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 20px;
+  }
+
+  .title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-top: 0em;
+    padding-bottom: 0.5em;
+  }
+  .techSkills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .techStackBackButton {
+    top: 17%;
+    left: 0%;
+  }
+}
+
+/* Tablets and portrait desktops */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .skillGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    gap: var(--grid-gap);
+    justify-content: center;
+  }
+  /* Center the last row with only 2 items */
+.skillGrid > :nth-last-child(2) {
+  grid-column: 2 / 3; /* Start in slot 2 */
+}
+.skillGrid > :nth-last-child(1) {
+  grid-column: 3 / 4; /* Start in slot 3 */
+}
+
+  .title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-top: 0em;
+    padding-bottom: 20px;
+  }
+  .techSkills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .skillCard {
     width: 120px;
     height: auto;
     padding: 15px;
   }
 
-  .skillCard img {
-    width: 50px;
-    height: 50px;
-  }
 
-  .skillCard p {
-    font-size: 15px;
-  }
 
   .conorCoding {
-    width: 550px;
-    height: auto;
-    max-height: 300px;
+    width: auto;
+    height: 500px;
+    max-height: 400px;
     object-fit: cover;
     margin-top: 10px;
     border-radius: 30px;
   }
   .techStackBackButton {
-    top: 15%;
+    top: 18%;
     left: 0%;
   }
 }
+
+
 
 
 
