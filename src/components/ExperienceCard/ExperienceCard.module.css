@@ -13,13 +13,8 @@
 }
 
 .icon {
-  display: 'flex';
-  align-items: 'center';
-  justify-content: 'center';
-  width: '60px';
-  height: '60px';
   border: 3px solid black !important;
-  box-shadow: 0 0 0 4px #fff,
+  box-shadow: 0 0 0 4px #fff;
 }
 
 
@@ -82,15 +77,16 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--secondary-text-color);
-  margin: 0 1.5rem;
   padding: 0.25rem 0.75rem;
   background-color: var(--experience-date-bg-color);
   border-radius: 20px;
-  display: inline-block;
-  text-align: center;
+  display: block; /* Ensure it's a block-level element */
+  width: fit-content; /* Adjust width to fit content */
+  margin: 0 auto; /* Center the element */
+  text-align: center; /* Center text horizontally */
 }
 
-@media (max-width: 1170px) {
+@media (max-width: 450px) {
   .role {
     font-size: 1.5rem;
   }
@@ -105,33 +101,43 @@
   }
 
   .descriptionItem::before {
+    position: absolute;
     left: 0;
     font-size: 1.25rem;
   }
 
   .date {
-    margin-top: 10px !important;
-    padding: 0.5rem 0.5rem !important;
-    font-size: .85rem !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    text-align: center !important;
+    display: block;
+    width: fit-content;
+    padding: .75rem 2rem !important;
+    margin: 10px auto !important; /* Center the element */
   }
 
    .iconContainer {
   display: flex;
   justify-content: center;
-  align-items: right;
+  align-items: center;
   height: 100%;
   width: 100%;
   border-radius: 50%;
   transition: transform 0.3s ease;
    }
 
-   .icon {
-  /* Half of the icon's width */
-  } 
+}
 
+@media (min-width: 451px) {
+  .date {
+    margin-top: 10px !important;
+    padding: .75rem 2rem !important;
+    font-size: .85rem !important;
+  }
 }
 /* Media query for two-column layout */
-@media only screen and (min-width: 1170px) {
+@media only screen and (min-width: 900px) {
   
   :global(.vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content .vertical-timeline-element-date),
   :global(.vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date) {

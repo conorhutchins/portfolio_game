@@ -27,7 +27,7 @@ const ExperienceSection = () => {
   }, [isDarkMode]);
 
   return (
-    <div className={`${styles.section} relative w-full mx-auto`}>
+    <div className={styles.section}>
       <div className={styles.experienceBackButton}>
         <BackButton />
       </div>

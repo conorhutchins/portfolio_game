@@ -32,16 +32,16 @@
 }
 .experienceBackButton {
   position: absolute;
-  top: 25% !important;  /* Example for positioning the button at 50% height */
+  top: 2% !important;  /* Example for positioning the button at 50% height */
   left: 0% !important;
   transform: translateY(-50%);
 }
 
 
 /* Responsive design (if needed) */
-@media (min-width: 480px) {
+@media (min-width: 400px) {
   .headText {
-    font-size: 40px; /* Adjust if necessary */
+    font-size: 50px; /* Adjust if necessary */
     padding-top: 2em;
   }
 
@@ -57,7 +57,7 @@
     margin-top: 0rem;
   }
   .section {
-    width: 80%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     position: relative; /* Added for positioning */
