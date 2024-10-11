@@ -17,7 +17,7 @@ const Projects: React.FC<{}> = () => {
       <motion.article variants={fadeIn("down", "spring", 0.1, 1)}>
         <h2 className={styles.sectionHeadText}>Projects</h2>
         <motion.p className={styles.sectionSubText}>
-          My Work (more projects coming soon)
+          My work (more projects coming soon)
         </motion.p>
       </motion.article>
 
