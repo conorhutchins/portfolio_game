@@ -41,7 +41,7 @@
   font-family: 'Commissioner', sans-serif;
   font-size: 1.5rem !important; /* Use !important to override any conflicting styles */
   font-weight: 600 !important;
-  margin: 0;
+  margin: 0px;
   color: #4a9fff;/* This will allow the color to be controlled by the parent element */
 }
 
@@ -86,9 +86,11 @@
   text-align: center; /* Center text horizontally */
 }
 
+
 @media (max-width: 450px) {
   .role {
     font-size: 1.5rem;
+    margin-bottom: 0rem;
   }
 
   .company {

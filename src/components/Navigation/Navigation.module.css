@@ -128,9 +128,8 @@ body, html {
         max-height: 120px;
         max-width: 120px;
     }
-    
     .socialIcon {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     .menuIcon {
@@ -152,6 +151,7 @@ body, html {
     .socialIcon {
         font-size: 24px;
     }
+
 }
 
 @media (min-width: 769px) {
