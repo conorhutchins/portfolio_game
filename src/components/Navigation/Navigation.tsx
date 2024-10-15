@@ -36,7 +36,8 @@ const Navigation: React.FC = () => {
 
           {/* Logo */}
           <Link to="/" className={styles.logo} onClick={handleNavItemClick}>
-            <img src={isDarkMode ? nameLogoDark : nameLogoLight} alt="logo" />
+            <img src={isDarkMode ? nameLogoDark : nameLogoLight} alt="logo" 
+            className={styles.logoImg}/>
           </Link>
         </div>
 
