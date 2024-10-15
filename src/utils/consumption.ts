@@ -1,6 +1,5 @@
 import { Cell, LabelledCell } from '../types';
 import { isLabelledCell } from './helpers';
-import { CONFIG } from './config';
 
 export const handleMainCellConsume = (
   allCells: Cell[],

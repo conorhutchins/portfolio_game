@@ -33,7 +33,6 @@ const GameField: React.FC = () => {
     setMainCellPosition,
     mainCellSize,
     consumedByMainCell,
-    setConsumedByMainCell,
     allCells,
     setAllCells,
     handleConsume,

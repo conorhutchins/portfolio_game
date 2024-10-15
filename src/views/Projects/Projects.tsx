@@ -1,4 +1,3 @@
-import SectionWrapper from "../../hoc/SectionWrapper";
 import { motion } from "framer-motion";
 import { textVariant, fadeIn } from "../../utils/motionForText";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
