@@ -17,14 +17,14 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label 
     const dx = e.clientX - position.x;
     const dy = e.clientY - position.y;
     const angle = Math.atan2(dy, dx);
-    const speed = CONFIG.MAIN_CELL.speedMultiplier; 
+    const speed = window.innerWidth <= 600 ? CONFIG.MAIN_CELL.speedMultiplier * 0.5 : CONFIG.MAIN_CELL.speedMultiplier;
     setVelocity({ x: Math.cos(angle) * speed, y: Math.sin(angle) * speed });
   };
 
   const updatePosition = () => {
     setPosition(prev => ({
-      x: prev.x + velocity.x,
-      y: prev.y + velocity.y,
+      x: Math.max(0, Math.min(window.innerWidth - size, prev.x + velocity.x)),
+      y: Math.max(0, Math.min(window.innerHeight - size, prev.y + velocity.y)),
     }));
     requestRef.current = requestAnimationFrame(updatePosition);
   };

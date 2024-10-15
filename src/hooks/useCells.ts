@@ -95,5 +95,6 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
     allCells,
     handleConsume: handleMainCellConsume,
     handleLabelledCellConsume,
+    setAllCells,
   };
 };
