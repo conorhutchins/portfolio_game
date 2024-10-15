@@ -26,15 +26,14 @@ const findNonCollidingPosition = (
   maxWidth: number,
   maxHeight: number
 ): { x: number; y: number } => {
-  let position: { x: number; y: number };
-  let isValidPosition: boolean;
-
   do {
-    position = getRandomPosition(maxWidth, maxHeight);
-    isValidPosition = existingCells.every(cell => !isColliding(position, size, cell.initialPosition, cell.size));
-  } while (!isValidPosition);
-
-  return position;
+    const position = getRandomPosition(maxWidth, maxHeight); // Declare 'position' as a constant inside the loop
+    const isValidPosition = existingCells.every(cell => !isColliding(position, size, cell.initialPosition, cell.size));
+    if (isValidPosition) {
+      return position; // Return the valid position immediately
+    }
+    // Continue looping if not a valid position
+  } while (true); // Loop indefinitely until a valid position is found
 };
 
 export const generateRandomCells = (
@@ -48,12 +47,13 @@ export const generateRandomCells = (
 
   for (let i = 0; i < count; i++) {
     const position = findNonCollidingPosition([...existingCells, ...cells], randomCellSize, maxWidth, maxHeight);
-    cells.push({
+    const newCell = {
       id: `cell-${i + 1}`,
       initialPosition: position,
       size: randomCellSize,
       color: getRandomColor(),
-    });
+    };
+    cells.push(newCell);
   }
 
   return cells;
