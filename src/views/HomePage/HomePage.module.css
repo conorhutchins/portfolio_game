@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--homepage-content-bg-color);
   color: var(--text-color);
   padding: 30px;
   border-radius: 8px;
@@ -35,13 +35,28 @@
   min-height: 80vh;
 }
 
-/* Header styles */
-.homePageContent h1 {
+.typingHeader {
   font-size: 2.5em;
   margin-bottom: 20px;
   font-weight: 700;
-  color: var(--homepage-title-text-color);
+  color: #FF7400; /* Set font color to orange */
   text-align: center;
+  display: inline-block;
+  overflow: hidden; /* Hide overflowing text */
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  background-color: #FF7400; /* Match cursor color to text */
+  animation: blink 0.7s infinite;
+  margin-left: 5px;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Paragraph styles */
@@ -49,8 +64,8 @@
   font-size: 1em;
   margin: 15px 0;
   text-align: center;
-  font-weight: 300;
-  color: white;
+  font-weight: 400;
+  color: var(--homepage-text-color);
   max-width: 600px;
 }
 
@@ -76,7 +91,8 @@
   transition: border-color 0.3s;
   text-align: center;
   background: var(--input-background);
-  color: var(--input-text-color);
+  font-weight: 400;
+  color: var(--homepage-input-text-color);
 }
 
 .input:focus {
@@ -87,12 +103,13 @@
 
 .input::placeholder {
   color: var(--homepage-input-placeholder-text-color);
+  font-weight: 400;
 }
 
 /* Button styles */
 .startButton {
   padding: 1em 2em;
-  background-color: var(--button-background-color);
+  background-color: var( --homepage-button-bg-color);
   color: var(--button-text-color);
   border: none;
   border-radius: 4px;
@@ -153,7 +170,7 @@
     min-height: 85vh;
   }
 
-  .homePageContent h1 {
+  .typingHeader {
     font-size: 2.2em;
   }
 
@@ -177,7 +194,7 @@
     justify-content: flex-start;
   }
 
-  .homePageContent h1 {
+  .typingHeader {
     font-size: 2em;
     margin-top: 40px;
   }

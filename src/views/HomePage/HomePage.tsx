@@ -7,6 +7,10 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
 
+  const fullText = 'Conor Hutchins Portfolio Site 💻';
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
     document.body.classList.add('homepage-background');
     return () => {
@@ -14,6 +18,17 @@ const HomePage: React.FC = () => {
     };
   }, []);
 
+  // Typing effect
+  useEffect(() => {
+    if (currentIndex < fullText.length) {
+      const timeoutId = setTimeout(() => {
+        setDisplayedText((prev) => prev + fullText[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, 100); // Adjust the typing speed here (milliseconds)
+      return () => clearTimeout(timeoutId);
+    }
+  }, [currentIndex, fullText]);
+  
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (name) {
@@ -30,7 +45,10 @@ const HomePage: React.FC = () => {
 
       {/* Main content overlaid on top */}
       <div className={styles.homePageContent}>
-        <h1>Conor Hutchins Portfolio Site</h1>
+        <h1 className={styles.typingHeader}> 
+          {displayedText}
+          <span className={styles.cursor}>|</span>
+        </h1>
         <p>
           👋 Hi I'm Conor, I'm a Software Engineer who specialises in{' '}
           <span className={styles.boldUnderlined}>Javascript</span>,{' '}

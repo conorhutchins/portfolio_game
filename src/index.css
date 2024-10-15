@@ -10,7 +10,7 @@
   --input-text-color: #000000;
   --input-border-color: #ccc;
   --input-focus-border-color: rgb(229, 229, 235);
-  --input-focus-box-shadow: rgba(5, 134, 220, 0.961);
+  --input-focus-box-shadow: rgba(220, 116, 5, 0.961);
   --button-background-color: #ffffff;
   --button-text-color: #000000;
   --button-hover-background-color: #f2f2f2;
@@ -21,12 +21,12 @@
   --contact-page-button-bg-color: #ddd8d8;
   --contact-page-button-hover-color: #c4c4c4;
   --contact-title-font-weight: 900;
-  --homepage-input-placeholder-text-color: #555555;
+  --homepage-input-placeholder-text-color: #FF7400;
   --homepage-title-text-color: #ffffff;
   --wave-color: rgba(0, 123, 255, 0.5);
   --wave-color-light: rgb(243, 237, 237);
   --wave-color-dark: rgba(9, 0, 0, 0.5);
-  --workexamples-text-color: white;
+  --workexamples-text-color: black;
   --wave-color-start: #eef2f3; /* Light blue gradient start */
   --wave-color-end: #69c0ff;   /* Light blue gradient end */
   --timeline-line-color: black;
@@ -36,6 +36,11 @@
   --navbar-trans-bg-color: rgba(252, 248, 248, 0.9);
   --navbar-solid-bg-color: white;
   --homepage-object-bg-color: #f2f2f2;
+  --homepage-content-bg-color: rgba(244, 240, 240, 0.6);
+  --homepage-text-color: #000000;
+  --homepage-button-bg-color: #FF7400;
+  --homepage-input-text-color: #FF7400;
+  
 } 
 
 body[data-theme="dark"] {
@@ -49,7 +54,7 @@ body[data-theme="dark"] {
   --input-text-color: #AAA6C3;
   --input-border-color: #555555;
   --input-focus-border-color: rgb(229, 229, 235);
-  --input-focus-box-shadow: rgba(5, 134, 220, 0.961);
+  --input-focus-box-shadow: rgba(220, 116, 5, 0.961);
   --button-background-color: #444444;
   --button-text-color: #ffffff;
   --button-hover-background-color: #666666;
@@ -59,7 +64,7 @@ body[data-theme="dark"] {
   --input-bg-color: #151030;
   --contact-page-button-bg-color: #1d1d1d;
   --contact-page-button-hover-color: #333;
-  --homepage-input-placeholder-text-color: #aaaaaa;
+  --homepage-input-placeholder-text-color: #FF7400;
   --homepage-title-text-color: #ffffff;
   --wave-color: rgba(38, 15, 211, 0.457); /* Cyan with some transparency */
   --wave-color-start: #001529; /* Dark blue gradient start */
@@ -71,6 +76,11 @@ body[data-theme="dark"] {
   --navbar-trans-bg-color: rgba(0, 0, 0, 0.9);
   --navbar-solid-bg-color: black;
   --homepage-object-bg-color: #1d1d1d;
+  --homepage-content-bg-color: rgba(30, 29, 29, 0.6);
+  --homepage-text-color: white;
+  --workexamples-text-color: white;
+  --homepage-button-bg-color: #151030;
+  --homepage-input-text-color: #FF7400;
 }
 
 
