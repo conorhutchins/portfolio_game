@@ -1,141 +1,208 @@
 /* Reset and global styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Container for the CoolObject background */
-  .homePageCoolObject {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ensure it's behind the content */
-    overflow: hidden;
-  }
-  
-  /* Container for the main content */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container for the CoolObject background */
+.homePageCoolObject {
+  position: absolute;
+  top: 3;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Container for the main content */
+.homePageContent {
+  font-family: "Commissioner", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--text-color);
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  margin: 5vh auto;
+  position: relative;
+  z-index: 1;
+  min-height: 80vh;
+}
+
+/* Header styles */
+.homePageContent h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: var(--homepage-title-text-color);
+  text-align: center;
+}
+
+/* Paragraph styles */
+.homePageContent p {
+  font-size: 1em;
+  margin: 15px 0;
+  text-align: center;
+  font-weight: 300;
+  color: white;
+  max-width: 600px;
+}
+
+/* Form styles */
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Input styles */
+.input {
+  padding: 0.75rem;
+  font-size: 1em;
+  border-radius: 4px;
+  border: 1px solid var(--input-border-color);
+  width: 100%;
+  max-width: 300px;
+  transition: border-color 0.3s;
+  text-align: center;
+  background: var(--input-background);
+  color: var(--input-text-color);
+}
+
+.input:focus {
+  border-color: var(--input-focus-border-color);
+  outline: none;
+  box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
+}
+
+.input::placeholder {
+  color: var(--homepage-input-placeholder-text-color);
+}
+
+/* Button styles */
+.startButton {
+  padding: 1em 2em;
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Commissioner', sans-serif;
+  font-size: 1em;
+  font-weight: 900;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+}
+
+.startButton:hover {
+  background-color: var(--button-hover-background-color);
+}
+
+.startButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
+}
+
+/* Link styles */
+.workExamplesLink {
+  margin-top: 30px;
+  font-size: 1em;
+  color: var(--workexamples-text-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.workExamplesLink:hover {
+  color: var(--button-hover-background-color);
+}
+
+.workExamplesLink:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
+}
+
+/* Additional text styles */
+.howToPlay,
+.instructions {
+  margin: 0;
+  padding: 0;
+}
+
+.boldUnderlined {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
   .homePageContent {
-    font-family: "Commissioner", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background to distinguish content */
-    color: var(--text-color);
-    padding: 30px;
-    border-radius: 8px;
-    width: 80%;
-    max-width: 800px;
-    margin: 5% auto;
-    position: relative;
-    z-index: 1; /* Ensure it's above the background */
+    width: 85%;
+    padding: 25px;
+    margin: 2.5vh auto;
+    min-height: 85vh;
   }
-  
-  /* Header styles */
+
   .homePageContent h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    font-weight: 700;
-    color: var(--homepage-title-text-color);
-    text-align: center;
+    font-size: 2.2em;
   }
-  
-  /* Paragraph styles */
+
   .homePageContent p {
-    font-size: 1em;
-    margin: 10px 0;
-    text-align: center;
-    font-weight: 300;
-    color: white;
+    font-size: 0.9em;
   }
-  
-  /* Form styles */
-  .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    padding-top: 10px;
-  }
-  
-  /* Input styles */
-  .input {
-    padding: 0.5rem;
-    font-size: 1em;
-    border-radius: 4px;
-    border: 1px solid var(--input-border-color);
-    width: 15em;
-    transition: border-color 0.3s;
-    text-align: center;
-    background: var(--input-background);
-    color: var(--input-text-color);
-  }
-  
-  .input:focus {
-    border-color: var(--input-focus-border-color);
-    outline: none;
-    box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
-  }
-  
-  .input::placeholder {
-    color: var(--homepage-input-placeholder-text-color);
-  }
-  
-  /* Button styles */
+
+  .input,
   .startButton {
-    padding: 1em 2em;
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: 'Commissioner', sans-serif;
-    font-size: 1em;
-    font-weight: 900;
-    width: 15em;
-    text-align: center;
+    max-width: 280px;
   }
-  
-  .startButton:hover {
-    background-color: var(--button-hover-background-color);
-  }
-  
-  .startButton:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
-  }
-  
-  /* Link styles */
-  .workExamplesLink {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 1em;
-    color: var(--workexamples-text-color);
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  .workExamplesLink:hover {
-    color: var(--button-hover-background-color);
-  }
-  
-  .workExamplesLink:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem var(--input-focus-box-shadow);
-  }
-  
-  /* Additional text styles */
-  .howToPlay,
-  .instructions {
+}
+
+@media screen and (max-width: 480px) {
+  .homePageContent {
+    width: 100%;
+    padding: 20px;
     margin: 0;
-    padding: 0;
+    border-radius: 0;
+    min-height: 100vh;
+    justify-content: flex-start;
   }
-  
-  .boldUnderlined {
-    font-weight: 600;
-    text-decoration: underline;
+
+  .homePageContent h1 {
+    font-size: 2em;
+    margin-top: 40px;
   }
-  
+
+  .homePageContent p {
+    font-size: 0.9em;
+  }
+
+  .input,
+  .startButton {
+    font-size: 1em;
+    max-width: 260px;
+  }
+
+  .form {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  .workExamplesLink {
+    margin-top: auto;
+    margin-bottom: 30px;
+  }
+  .homePageCoolObject {
+   top: 0;
+   height: 88%;
+  }
+}
