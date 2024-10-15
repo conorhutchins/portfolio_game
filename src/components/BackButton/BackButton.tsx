@@ -6,7 +6,9 @@ import { useTheme } from '../../theme/ThemeContext';
 
 const BackButton: React.FC = () => {
   const navigate = useNavigate();
-  const { isDarkMode }  = useTheme()
+  const { isDarkMode } = useTheme();
+
+  console.log('isDarkMode:', isDarkMode);
 
   const handleClick = () => {
     navigate(-1);
@@ -14,7 +16,7 @@ const BackButton: React.FC = () => {
 
   return (
     <button onClick={handleClick} className={styles.backButton}>
-     { isDarkMode ? <IoArrowBackCircleOutline size={50} /> : <IoArrowBackCircleSharp size={50} /> }
+      {isDarkMode ? <IoArrowBackCircleOutline size={50} color="white" /> : <IoArrowBackCircleSharp size={50} color="black" />}
     </button>
   );
 };
