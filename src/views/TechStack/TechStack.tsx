@@ -9,7 +9,7 @@ const TechStack = () => {
     <section className={styles.techStackSection}>
       <div className={styles.techSkills}>
         <div className={styles.techStackBackButton}>
-          <BackButton />
+          <div className={styles.techStackBackButton}><BackButton /></div>
         </div> 
         <h2 className={styles.title}>My Skills</h2>
         <div className={styles.contentWrapper}>

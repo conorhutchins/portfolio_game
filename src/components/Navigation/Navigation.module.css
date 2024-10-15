@@ -5,51 +5,84 @@ body, html {
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     z-index: 999;
     position: relative;
+    background-color: var(--navbar-trans-bg-color);
+    height: 10vh;
+    padding: 0 20px;
 }
 
 .container {
     display: flex;
     align-items: center;
     width: 100%;
-    position: relative;
-    background-color: var(--navbar-trans-bg-color);
-    top: 0px;
-    height: 10vh;
-}
-
-.logo {
-    z-index: 1;
-    margin-right: 2rem;
+    justify-content: space-between;
     position: relative;
 }
 
-.logo img {
-    height: 10rem;
-    position: relative;
+.leftContainer {
+    display: flex;
+    align-items: center;
+    z-index: 3;
 }
 
 .menuIcon {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 40px; /* Set a width for the icon */
-    height: 30px; /* Set a height for the icon */
+    width: 30px;
+    height: 24px;
     cursor: pointer;
-    z-index: 2;
-    margin-left: 20px;
-    background-color: transparent; /* Make background transparent */
-    padding: 0; /* Remove padding to avoid extra space */
-  }
+    z-index: 4;
+    background-color: transparent;
+    padding: 0;
+    margin-right: 10px;
+}
 
 .menuIconLine {
-  width: 100%; /* Full width of the parent */
-  height: 4px; /* Thickness of the lines */
-  background-color: var(--text-color); /* Use the text color variable */
-  transition: all 0.3s ease;
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.logoImg {
+    height: auto;
+    width: auto;
+    max-height: 80px;
+    max-width: 160px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.socialIcons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.socialIconLink {
+    margin: 0 5px;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.socialIconLink:hover {
+    color: var(--button-hover-background-color);
+}
+
+.themeToggle {
+    margin-left: 10px;
+    z-index: 3;
 }
 
 .navList {
@@ -65,19 +98,19 @@ body, html {
     font-size: 2em;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center items vertically */
+    justify-content: center;
     align-items: center;
-    width: 100vw; /* Full screen width */
-    height: 100vh; /* Full screen height */
+    width: 100vw;
+    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--navbar-solid-bg-color); /* Background to cover whole screen */
-    z-index: 1;
+    background-color: var(--navbar-solid-bg-color);
+    z-index: 2;
 }
 
 .navItem {
-    margin: 10px 0; /* Adjust spacing between items */
+    margin: 10px 0;
 }
 
 .navLink {
@@ -90,87 +123,58 @@ body, html {
     color: var(--button-hover-background-color);
 }
 
-.themeToggle {
-    margin-left: auto;
-}
-
-/* Hide the logo image when the nav is active */
-.navList.active ~ .logo img {
-    display: none;
-}
-
-/* Keep the menuIcon visible and in the same position */
-.navList.active ~ .menuIcon {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-}
-
-/* Social Icons Container */
-.socialIcons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute; /* Allow it to scroll with the page */
-    bottom: 20px; /* Adjust as needed */
-    right: 10em; /* Position 2em from the right */
-}
-  
-  /* Social Icon Links */
-  .socialIconLink {
-    margin: 0 10px; /* Spacing between icons */
-    color: var(--text-color); /* Themeable color */
-    font-size: 2.5rem; /* Adjust size as needed */
-    transition: color 0.3s;
-  }
-  
-  /* Change color on hover */
-  .socialIconLink:hover {
-    color: var(--button-hover-background-color);
-  }
-  
-
-/* Media queries for different screen sizes */
-@media (max-width: 1200px) {
-    .logo {
-        margin-right: 8px;
+@media (max-width: 480px) {
+    .logoImg {
+        max-height: 120px;
+        max-width: 120px;
     }
+    
+    .socialIcon {
+        font-size: 24px;
+    }
+
     .menuIcon {
-        margin-left: 8px;
+        width: 24px;
+        height: 20px;
+    }
+
+    .navbar {
+        padding: 0 10px;
     }
 }
 
-@media (max-width: 992px) {
-    .logo {
-        margin-right: 6px;
+@media (min-width: 481px) and (max-width: 768px) {
+    .logoImg {
+        max-height: 130px;
+        max-width: 130px;
     }
-    .menuIcon {
-        margin-left: 6px;
+    
+    .socialIcon {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 769px) {
+    .logoImg {
+        max-height: 160px;
+        max-width: 160px;
+    }
+    
+    .socialIcon {
+        font-size: 35px;
     }
 }
 
 @media (max-width: 768px) {
-    .navList {
+    .menuIcon {
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
     }
-    .navList.active {
-        flex-direction: column;
-    }
-    .logo {
-        margin-right: 4px;
-    }
-    .menuIcon {
-        margin-left: 4px;
-    }
-}
 
-@media (max-width: 576px) {
-    .logo {
-        margin-right: 2px;
+    .navList {
+        display: none;
     }
-    .menuIcon {
-        margin-left: 2px;
+
+    .navList.active ~ .socialIcons {
+        display: none;
     }
 }

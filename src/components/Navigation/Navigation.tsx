@@ -25,46 +25,48 @@ const Navigation: React.FC = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.container}>
-        {/* Hamburger Icon for Mobile Menu */}
-        <div className={styles.menuIcon} onClick={toggleMenu}>
-          <span className={styles.menuIconLine}></span>
-          <span className={styles.menuIconLine}></span>
-          <span className={styles.menuIconLine}></span>
+        {/* Left Side: Menu Icon and Logo */}
+        <div className={styles.leftContainer}>
+          {/* Menu Icon */}
+          <div className={styles.menuIcon} onClick={toggleMenu}>
+            <span className={styles.menuIconLine}></span>
+            <span className={styles.menuIconLine}></span>
+            <span className={styles.menuIconLine}></span>
+          </div>
+
+          {/* Logo */}
+          <Link to="/" className={styles.logo} onClick={handleNavItemClick}>
+            <img src={isDarkMode ? nameLogoDark : nameLogoLight} alt="logo" 
+            className={styles.logoImg}/>
+          </Link>
         </div>
 
-        {/* Logo */}
-        <Link to="/" className={styles.logo} onClick={handleNavItemClick}>
-          <img src={isDarkMode ? nameLogoDark : nameLogoLight} alt="logo" />
-        </Link>
+        {/* Social Icons (Centered) */}
+        <div className={styles.socialIcons}>
+          <a
+            href="https://github.com/conorhutchins"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIconLink}
+          >
+            <FaGithub className={styles.socialIcon} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/conorhutchins/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.socialIconLink}
+          >
+            <FaLinkedin className={styles.socialIcon} />
+          </a>
+        </div>
 
-        {/* GitHub and LinkedIn Icons */}
-        {!isMenuOpen && (
-          <div className={styles.socialIcons}>
-            <a
-              href="https://github.com/conorhutchins"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIconLink}
-            >
-              <FaGithub className={styles.socialIcon} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/conorhutchins/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.socialIconLink}
-            >
-              <FaLinkedin className={styles.socialIcon} />
-            </a>
-          </div>
-        )}
-
-        {/* Theme Toggle */}
+        {/* Theme Toggle (Right Side) */}
         <div className={styles.themeToggle}>
           <ThemeToggle />
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links (Hidden by Default, Shown on Menu Open) */}
         <ul className={`${styles.navList} ${isMenuOpen ? styles.active : ''}`}>
           <li className={styles.navItem}>
             <Link to="/experience" className={styles.navLink} onClick={handleNavItemClick}>

@@ -23,15 +23,8 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
       dateClassName={styles.date}
       iconStyle={{
         background: '#fff',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '60px',
-        height: '60px',
-        marginLeft: '-30px',
-        border: '3px solid #3a3a3a',
-        boxShadow: '0 0 0 4px #fff',
       }}
+      iconClassName={styles.icon}
       icon={
         <div className={styles.iconContainer} style={{ background: experience.logoBg }}>
           <img

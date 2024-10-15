@@ -55,3 +55,20 @@
     display: none;
   }
   
+  /* Media query for min-width: 400px */
+@media (max-width: 769px) {
+  .switch-container {
+    padding: 3px 6px;
+  }
+
+  .switch {
+    width: 65px;
+    height: 30px;
+    padding: 0 4px;
+  }
+
+  .sun,
+  .moon {
+    font-size: 16px;
+  }
+}

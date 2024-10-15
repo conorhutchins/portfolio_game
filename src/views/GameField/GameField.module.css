@@ -1,0 +1,28 @@
+.gameField {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    .gameField {
+        padding: 10px;
+    }
+}
+
+/* Tablet styles */
+@media (min-width: 601px) and (max-width: 900px) {
+    .gameField {
+        padding: 20px;
+    }
+}
+
+/* Desktop styles */
+@media (min-width: 901px) {
+    .gameField {
+        padding: 30px;
+    }
+}

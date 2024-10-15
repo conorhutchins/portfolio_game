@@ -13,7 +13,7 @@ const ContactPage: React.FC = () => {
       </div>
       <h1 className={styles.title}>Contact Me</h1>
       <ContactForm />
-      <QRCode />
+      <div className={styles.contactQrCode}><QRCode /> </div>
     </div>
   );
 };

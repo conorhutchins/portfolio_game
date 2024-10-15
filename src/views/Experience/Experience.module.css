@@ -10,6 +10,7 @@
   font-weight: 900;
   color: var(--title-text-color);
   font-size: 3.75rem;
+  padding-top: 1em;
 }
 
 .subText {
@@ -31,24 +32,35 @@
 }
 .experienceBackButton {
   position: absolute;
-  top: 20%;
-  left: 30px;
+  top: 2% !important;  /* Example for positioning the button at 50% height */
+  left: 0% !important;
   transform: translateY(-50%);
 }
 
-/* Additional styles to replace Tailwind classes */
-.article {
-  /* Styles for the article will be handled by motion animation */
-}
 
 /* Responsive design (if needed) */
-@media (max-width: 640px) {
+@media (min-width: 400px) {
   .headText {
-    font-size: 2.5rem; /* Adjust if necessary */
+    font-size: 50px; /* Adjust if necessary */
+    padding-top: 2em;
   }
 
   .subText {
-    font-size: 2rem; /* Adjust if necessary */
+    font-size: 1.25rem; /* Adjust if necessary */
+  }
+
+  .experienceBackButton {
+    top: 5%; /* Adjust if necessary */
+    left: 0%; /* Adjust if necessary */
+  }
+  .timelineContainer {
+    margin-top: 0rem;
+  }
+  .section {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Added for positioning */
   }
 }
 

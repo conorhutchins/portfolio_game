@@ -3,6 +3,7 @@
   font-family: "Commissioner", sans-serif;
   font-weight: 900;
   font-size: 2.5rem;
+  padding-top: 1em;
 }
 
 .sectionSubText {
@@ -32,7 +33,7 @@
 
 .projectsBackButton {
   position: absolute;
-  top: 20%;
+  top: 10%;
   left: 30px;
   transform: translateY(-50%);
 }
@@ -63,14 +64,21 @@
   scrollbar-width: thin;  /* Firefox */
 }
 
-@media (min-width: 576px) {
+@media (min-width: 250px) {
+  .gridContainer {
+    margin-top: 2em;
+  }
   .sectionHeadText {
-    font-size: 2.5rem;
+    font-size: 60px;
   }
   
   .sectionSubText {
-    font-size: 1.5rem;
-    letter-spacing: 0.0em;
+    font-size: 1.25rem;
+    padding-top: 1em;
+  }
+  .projectsBackButton {
+    top: 15%;
+    left: 0%;
   }
 }
 
