@@ -30,10 +30,9 @@
 
 .role {
   font-family: 'Commissioner', sans-serif;
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 0.5rem;
+  color: #FF7400;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -42,7 +41,7 @@
   font-size: 1.5rem !important; /* Use !important to override any conflicting styles */
   font-weight: 600 !important;
   margin: 0px;
-  color: #4a9fff;/* This will allow the color to be controlled by the parent element */
+  color: white;;/* This will allow the color to be controlled by the parent element */
 }
 
 .descriptionList {
@@ -57,7 +56,7 @@
 .descriptionItem {
   font-family: 'Commissioner', sans-serif;
   font-size: 0.95rem;
-  color: var(--secondary-text-color);
+  color: var(--experiencepage-content-color);
   position: relative;
   padding-left: 1.5rem;
   line-height: 1.6;
@@ -67,7 +66,7 @@
   content: '•';;
   left: 0;
   padding-right: 0.5rem;
-  color: #4a9fff;
+  color: #FF7400;
   font-size: 1.2rem;
   line-height: 1;
 }
@@ -76,7 +75,7 @@
   font-family: 'Commissioner', sans-serif;
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--secondary-text-color);
+  color: white;
   padding: 0.25rem 0.75rem;
   background-color: var(--experience-date-bg-color);
   border-radius: 20px;

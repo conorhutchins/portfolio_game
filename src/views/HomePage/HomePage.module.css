@@ -47,7 +47,7 @@
 
 .cursor {
   display: inline-block;
-  width: 2px;
+  width: 3px;
   background-color: #FF7400; /* Match cursor color to text */
   animation: blink 0.7s infinite;
   margin-left: 5px;
