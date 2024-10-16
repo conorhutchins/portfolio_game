@@ -47,7 +47,7 @@
 
 .cursor {
   display: inline-block;
-  width: 3px;
+  width: 2px;
   background-color: #FF7400; /* Match cursor color to text */
   animation: blink 0.7s infinite;
   margin-left: 5px;
@@ -196,7 +196,7 @@
 
   .typingHeader {
     font-size: 2em;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   .homePageContent p {
@@ -210,16 +210,16 @@
   }
 
   .form {
-    margin-top: auto;
+    margin-top: 100px;
     margin-bottom: auto;
   }
 
   .workExamplesLink {
-    margin-top: auto;
+    margin-top: 0px;
     margin-bottom: 30px;
   }
   .homePageCoolObject {
    top: 0;
-   height: 88%;
+   height: 85%;
   }
 }
