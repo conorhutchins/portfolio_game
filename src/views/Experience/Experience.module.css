@@ -39,7 +39,7 @@
 
 
 /* Responsive design (if needed) */
-@media (min-width: 390px) {
+@media (min-width: 380px) {
   .headText {
     font-size: 40px; /* Adjust if necessary */
     padding-top: 1.5em;

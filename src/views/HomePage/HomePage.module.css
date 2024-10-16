@@ -33,6 +33,7 @@
   position: relative;
   z-index: 1;
   min-height: 80vh;
+  max-height: 100vh;
 }
 
 .typingHeader {
@@ -164,10 +165,11 @@
 /* Media Queries for responsiveness */
 @media screen and (max-width: 768px) {
   .homePageContent {
-    width: 85%;
-    padding: 25px;
+    width: 100%;
+    padding: 20px;
     margin: 2.5vh auto;
-    min-height: 85vh;
+    min-height: 90vh;
+    
   }
 
   .typingHeader {
@@ -175,24 +177,17 @@
   }
 
   .homePageContent p {
-    font-size: 0.9em;
+    font-size: 1em;
   }
 
   .input,
   .startButton {
     max-width: 280px;
+    font-size: 1em;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .homePageContent {
-    width: 100%;
-    padding: 20px;
-    margin: 0;
-    border-radius: 0;
-    min-height: 100vh;
-    justify-content: flex-start;
-  }
 
   .typingHeader {
     font-size: 2em;
@@ -200,7 +195,7 @@
   }
 
   .homePageContent p {
-    font-size: 0.9em;
+    font-size: 1em;
   }
 
   .input,
@@ -210,8 +205,8 @@
   }
 
   .form {
-    margin-top: 100px;
-    margin-bottom: auto;
+    margin-top: 90px;
+    margin-bottom: 40px;
   }
 
   .workExamplesLink {
@@ -219,7 +214,7 @@
     margin-bottom: 30px;
   }
   .homePageCoolObject {
-   top: 0;
-   height: 85%;
+   top: 20px;
+   height: 90%;
   }
 }
