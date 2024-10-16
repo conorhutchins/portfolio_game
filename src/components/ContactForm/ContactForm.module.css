@@ -45,6 +45,7 @@
   
   button:hover:not(:disabled) {
     background-color: var(--contact-page-button-hover-color); /* Slightly darker shade for hover effect */
+    color: var(--contact-page-button-text-hover-color)
   }
   
   .error {
@@ -82,7 +83,7 @@
         padding: 1rem 2rem;
         font-family: "Commissioner", sans-serif;
         background-color: var(--contact-page-button-bg-color);
-        color: var(--title-text-color);
+        color: var(--contact-page-button-font-color);
         font-size: 1.125rem;
     }
     /* Media query for mobile devices */

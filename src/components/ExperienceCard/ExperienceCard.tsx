@@ -6,7 +6,7 @@ import styles from './ExperienceCard.module.css';
 
 const ExperienceCard = ({ experience }: { experience: Experience }) => {
   const { isDarkMode } = useTheme();
-  const backgroundColor = isDarkMode ? '#2a2a2a' : 'linear-gradient(135deg, #ddd8d8, #1ac9e0)';
+  const backgroundColor = isDarkMode ? '#2a2a2a' : 'linear-gradient(135deg, #173d21, #20412f';
   const textColor = isDarkMode ? '#ffffff' : '#333333';
 
   return (

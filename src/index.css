@@ -8,18 +8,19 @@
   --font-family: 'Comissioner', sans-serif;
   --input-background: #ffffff;
   --input-text-color: #000000;
-  --input-border-color: #ccc;
-  --input-focus-border-color: rgb(229, 229, 235);
-  --input-focus-box-shadow: rgba(220, 116, 5, 0.961);
+  --input-border-color: #FF7400;
+  --input-focus-border-color:#1b683d;
+  --input-focus-box-shadow: #1b683d;;
   --button-background-color: #ffffff;
   --button-text-color: #000000;
-  --button-hover-background-color: #f2f2f2;
-  --title-text-color: #000000;
-  --project-card-bg-color:linear-gradient(135deg, #ddd8d8, #1ac9e0);
+  --button-hover-background-color: #FF7400;
+  --title-text-color: #FF7400;
+  --project-card-bg-color:linear-gradient(135deg, #091e0f, #1b683d);
   --project-card-hover-bg-color: #333;
   --input-bg-color: #ddd8d8;
-  --contact-page-button-bg-color: #ddd8d8;
-  --contact-page-button-hover-color: #c4c4c4;
+  --contact-page-button-bg-color: #FF7400;
+  --contact-page-button-font-color: black;
+  --contact-page-button-hover-color: #151030;
   --contact-title-font-weight: 900;
   --homepage-input-placeholder-text-color: #FF7400;
   --homepage-title-text-color: #ffffff;
@@ -32,7 +33,7 @@
   --timeline-line-color: black;
   --project-card-title-text-color: white;
   --techstack-card-bg-color:#ddd8d8;
-  --experience-date-bg-color: #ddd8d8;
+  --experience-date-bg-color: #002605;
   --navbar-trans-bg-color: rgba(252, 248, 248, 0.9);
   --navbar-solid-bg-color: white;
   --homepage-object-bg-color: #f2f2f2;
@@ -40,6 +41,9 @@
   --homepage-text-color: #000000;
   --homepage-button-bg-color: #FF7400;
   --homepage-input-text-color: #FF7400;
+  --experiencepage-content-color: white;
+  --projectpage-techstack-color: white;
+  --contact-page-button-text-hover-color: white
   
 } 
 
@@ -52,18 +56,18 @@ body[data-theme="dark"] {
   --secondary-text-color: #aaaaaa; /* Secondary text color for dark mode */
   --input-background: #333333;
   --input-text-color: #AAA6C3;
-  --input-border-color: #555555;
-  --input-focus-border-color: rgb(229, 229, 235);
-  --input-focus-box-shadow: rgba(220, 116, 5, 0.961);
+  --input-border-color: #FF7400;
+  --input-focus-border-color: #1b683d;  
+  --input-focus-box-shadow: #1b683d;;
   --button-background-color: #444444;
   --button-text-color: #ffffff;
-  --button-hover-background-color: #666666;
+  --button-hover-background-color: #FF7400;
   --title-text-color: #ffffff;
   --project-card-bg-color:#1d1d1d;
   --project-card-hover-bg-color: #333;
   --input-bg-color: #151030;
   --contact-page-button-bg-color: #1d1d1d;
-  --contact-page-button-hover-color: #333;
+  --contact-page-button-hover-color: #FF7400;
   --homepage-input-placeholder-text-color: #FF7400;
   --homepage-title-text-color: #ffffff;
   --wave-color: rgba(38, 15, 211, 0.457); /* Cyan with some transparency */
@@ -81,6 +85,10 @@ body[data-theme="dark"] {
   --workexamples-text-color: white;
   --homepage-button-bg-color: #151030;
   --homepage-input-text-color: #FF7400;
+  --experiencepage-content-color: white;
+  --projectpage-techstack-color: #AAAAAA;
+  --contact-page-button-font-color: white;
+  --contact-page-button-text-hover-color: white
 }
 
 

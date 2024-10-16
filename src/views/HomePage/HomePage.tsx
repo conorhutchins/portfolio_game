@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
             How to play
             <br />
             <span className={styles.instructions}>
-              Use your mouse to move around and consume items of interest to you!
+              Use your mouse or tap screen on mobile to move around and consume blobs smaller than you!
             </span>
           </p>
           <button type="submit" className={styles.startButton}>

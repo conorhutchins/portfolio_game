@@ -122,6 +122,11 @@ body, html {
 .navLink:hover {
     color: var(--button-hover-background-color);
 }
+@media (max-width: 380px) {
+    .socialIcons {
+    margin-left: 30px;
+    }
+}
 
 @media (max-width: 480px) {
     .logoImg {
@@ -129,7 +134,7 @@ body, html {
         max-width: 120px;
     }
     .socialIcon {
-        font-size: 26px;
+        font-size: 28px;
     }
 
     .menuIcon {
@@ -140,6 +145,9 @@ body, html {
     .navbar {
         padding: 0 10px;
     }
+    .socialIcons {
+        margin-left: 20px;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
@@ -149,7 +157,10 @@ body, html {
     }
     
     .socialIcon {
-        font-size: 24px;
+        font-size: 32px;
+    }
+    .socialIcons {
+        margin-left: 30px;
     }
 
 }

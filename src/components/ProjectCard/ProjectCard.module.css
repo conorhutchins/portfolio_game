@@ -88,8 +88,7 @@
 .techStack {
   font-size: 0.875rem;
   font-weight: 400;
-  font-style: italic;
-  color: var(--secondary-text-color);
+  color: var(--projectpage-techstack-color);
 }
 
 .disabledLink {
