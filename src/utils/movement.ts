@@ -3,7 +3,12 @@ import { CONFIG } from './config';
 
 export const isLabelledCell = (cell: Cell): cell is LabelledCell => 'label' in cell;
 
-export const moveLabelledCells = (cells: Cell[]) => {
+export const moveLabelledCells = (cells: Cell[], isPaused: boolean) => {
+  if (isPaused) {
+    return cells; // Return cells without moving them if paused
+  }
+
+  // Update positions only if not paused
   return cells.map(cell => {
     if (isLabelledCell(cell)) {
       return {

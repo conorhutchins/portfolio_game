@@ -15,10 +15,22 @@ interface ConsumableCellProps {
   onLabelledCellConsume: (consumerId: string, consumedId: string, consumedSize: number) => void;
   allCells: Cell[];
   lastUpdated?: number;
+  isPaused?: boolean;
 }
 
 const ConsumableCell: React.FC<ConsumableCellProps> = ({
-  id, label, initialPosition, mainCellPosition, mainCellSize, size, color = '#3498db', onConsume, allCells, onLabelledCellConsume, lastUpdated
+  id,
+  label,
+  initialPosition,
+  mainCellPosition,
+  mainCellSize,
+  size,
+  color = '#3498db',
+  onConsume,
+  allCells,
+  onLabelledCellConsume,
+  lastUpdated,
+  isPaused
 }) => {
   const [position, setPosition] = useState(initialPosition);
   const [velocity, setVelocity] = useState({ x: 0, y: 0 });
@@ -43,7 +55,7 @@ const ConsumableCell: React.FC<ConsumableCellProps> = ({
   };
 
   useEffect(() => {
-    if (label) {
+    if (label && !isPaused) {
       const interval = setInterval(() => {
         setPosition(prevPos => {
           const newVelocity = bounceOffEdges(prevPos, velocity);
@@ -54,10 +66,10 @@ const ConsumableCell: React.FC<ConsumableCellProps> = ({
 
       return () => clearInterval(interval);
     }
-  }, [velocity, label]);
+  }, [velocity, label, isPaused]);
 
   useEffect(() => {
-    if (consumedRef.current) return;
+    if (consumedRef.current || isPaused) return;
 
     const dx = mainCellPosition.x - position.x;
     const dy = mainCellPosition.y - position.y;
@@ -84,7 +96,7 @@ const ConsumableCell: React.FC<ConsumableCellProps> = ({
         }
       });
     }
-  }, [mainCellPosition, mainCellSize, position, size, onConsume, id, label, allCells, onLabelledCellConsume]);
+  }, [mainCellPosition, mainCellSize, position, size, onConsume, id, label, allCells, onLabelledCellConsume, isPaused]);
 
   if (consumedRef.current) return null;
 

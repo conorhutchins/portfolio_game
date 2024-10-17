@@ -6,18 +6,19 @@ export const handleMainCellConsume = (
   setAllCells: React.Dispatch<React.SetStateAction<Cell[]>>,
   setMainCellSize: React.Dispatch<React.SetStateAction<number>>,
   setConsumedByMainCell: React.Dispatch<React.SetStateAction<LabelledCell | null>>,
+  setShowCVModal: React.Dispatch<React.SetStateAction<boolean>>, // Added parameter
   id: string,
   cellSize: number
 ) => {
-  const cell = allCells.find(cell => cell.id === id);
+  const cell = allCells.find((cell) => cell.id === id);
   if (cell && isLabelledCell(cell)) {
     setConsumedByMainCell(cell);
     if (cell.label === 'C.V') {
-      window.open('https://docs.google.com/document/d/1_mCPPCm-o1bl1O-s_qwoy6YYP0L4V-Ty4BldaSQCDis/edit?usp=sharing', '_blank');
+      setShowCVModal(true); // Show the modal
     }
   }
-  setMainCellSize(prevSize => prevSize + cellSize / 2);
-  setAllCells(prevCells => prevCells.filter(cell => cell.id !== id));
+  setMainCellSize((prevSize) => prevSize + cellSize / 2);
+  setAllCells((prevCells) => prevCells.filter((cell) => cell.id !== id));
 };
 
 export const handleLabelledCellConsume = (

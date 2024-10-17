@@ -5,8 +5,15 @@ import { CONFIG } from '../utils/config';
 import { isLabelledCell } from '../utils/helpers';
 import { moveLabelledCells } from '../utils/movement';
 import { handleCollision } from '../utils/collision';
+import * as consumption from '../utils/consumption';
 
-export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: number, windowHeight: number) => {
+export const useCells = (
+  initialLabelledCells: LabelledCell[], 
+  windowWidth: number, 
+  windowHeight: number, 
+  setShowCVModal: React.Dispatch<React.SetStateAction<boolean>>, 
+  showCVModal: boolean
+) => {
   const [mainCellPosition, setMainCellPosition] = useState({ x: windowWidth / 2, y: windowHeight / 2 });
   const [mainCellSize, setMainCellSize] = useState(CONFIG.MAIN_CELL.initialSize);
   const [consumedByMainCell, setConsumedByMainCell] = useState<LabelledCell | null>(null);
@@ -15,17 +22,20 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
     ...generateRandomCells(20, windowWidth, windowHeight, initialLabelledCells),
   ]);
 
-  const handleMainCellConsume = useCallback((id: string, cellSize: number) => {
-    const cell = allCells.find(cell => cell.id === id);
-    if (cell && isLabelledCell(cell)) {
-      setConsumedByMainCell(cell);
-      if (cell.label === 'C.V') {
-        window.open('https://docs.google.com/document/d/1_mCPPCm-o1bl1O-s_qwoy6YYP0L4V-Ty4BldaSQCDis/edit?usp=sharing', '_blank');
-      }
-    }
-    setMainCellSize(prevSize => prevSize + cellSize / 2);
-    setAllCells(prevCells => prevCells.filter(cell => cell.id !== id));
-  }, [allCells]);
+  const handleMainCellConsume = useCallback(
+    (id: string, cellSize: number) => {
+      consumption.handleMainCellConsume(
+        allCells,
+        setAllCells,
+        setMainCellSize,
+        setConsumedByMainCell,
+        setShowCVModal,
+        id,
+        cellSize
+      );
+    },
+    [allCells, setAllCells, setMainCellSize, setConsumedByMainCell, setShowCVModal]
+  );
 
   const handleLabelledCellConsume = useCallback((consumerId: string, consumedId: string, consumedSize: number) => {
     setAllCells(prevCells => {
@@ -34,7 +44,6 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
           return {
             ...cell,
             size: cell.size + consumedSize / 2,
-            // Add a timestamp to force re-render
             lastUpdated: Date.now()
           };
         }
@@ -45,46 +54,50 @@ export const useCells = (initialLabelledCells: LabelledCell[], windowWidth: numb
 
   useEffect(() => {
     const moveInterval = setInterval(() => {
-      setAllCells(prevCells => moveLabelledCells(prevCells));
+      if (!showCVModal) {
+        setAllCells(prevCells => moveLabelledCells(prevCells, showCVModal));
+      }
     }, CONFIG.LABELLED_CELL.moveInterval);
 
     const collisionInterval = setInterval(() => {
-      setAllCells(prevCells => {
-        let updatedCells = [...prevCells];
-        updatedCells.forEach((cell, index) => {
-          const mainCellAsCell: Cell = {
-            id: 'main',
-            initialPosition: mainCellPosition,
-            size: mainCellSize,
-            color: '',
-          };
+      if (!showCVModal) {
+        setAllCells(prevCells => {
+          let updatedCells = [...prevCells];
+          updatedCells.forEach((cell, index) => {
+            const mainCellAsCell: Cell = {
+              id: 'main',
+              initialPosition: mainCellPosition,
+              size: mainCellSize,
+              color: '',
+            };
 
-          if (handleCollision(cell, mainCellAsCell)) {
-            if (mainCellSize > cell.size) {
-              handleMainCellConsume(cell.id, cell.size);
+            if (handleCollision(cell, mainCellAsCell)) {
+              if (mainCellSize > cell.size) {
+                handleMainCellConsume(cell.id, cell.size);
+              }
             }
-          }
 
-          if (isLabelledCell(cell)) {
-            for (let i = index + 1; i < updatedCells.length; i++) {
-              const otherCell = updatedCells[i];
-              if (!isLabelledCell(otherCell) && handleCollision(cell, otherCell)) {
-                if (cell.size > otherCell.size) {
-                  handleLabelledCellConsume(cell.id, otherCell.id, otherCell.size);
+            if (isLabelledCell(cell)) {
+              for (let i = index + 1; i < updatedCells.length; i++) {
+                const otherCell = updatedCells[i];
+                if (!isLabelledCell(otherCell) && handleCollision(cell, otherCell)) {
+                  if (cell.size > otherCell.size) {
+                    handleLabelledCellConsume(cell.id, otherCell.id, otherCell.size);
+                  }
                 }
               }
             }
-          }
+          });
+          return updatedCells;
         });
-        return updatedCells;
-      });
+      }
     }, CONFIG.LABELLED_CELL.collisionInterval);
 
     return () => {
       clearInterval(moveInterval);
       clearInterval(collisionInterval);
     };
-  }, [mainCellPosition, mainCellSize, handleMainCellConsume, handleLabelledCellConsume]);
+  }, [mainCellPosition, mainCellSize, handleMainCellConsume, handleLabelledCellConsume, showCVModal]);
 
   return {
     mainCellPosition,

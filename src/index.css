@@ -43,7 +43,11 @@
   --homepage-input-text-color: #FF7400;
   --experiencepage-content-color: white;
   --projectpage-techstack-color: white;
-  --contact-page-button-text-hover-color: white
+  --contact-page-button-text-hover-color: white;
+  --modal-bg-color: #FF7400;
+  --modal-text-color: black;
+  --modal-close-bg-color: red;
+  --modal-close-text-color: white;
   
 } 
 
@@ -88,7 +92,11 @@ body[data-theme="dark"] {
   --experiencepage-content-color: white;
   --projectpage-techstack-color: #AAAAAA;
   --contact-page-button-font-color: white;
-  --contact-page-button-text-hover-color: white
+  --contact-page-button-text-hover-color: white;
+  --modal-bg-color: #151030;
+  --modal-text-color: white;
+  --modal-close-bg-color: red;
+  --modal-close-text-color: white;
 }
 
 
