@@ -41,6 +41,6 @@ export function createNewConsumableCell(id: string, viewportWidth: number, viewp
       y: Math.random() * viewportHeight
     },
     size: Math.random() * (25 - 20) + 20, // Random size between 20 and 50
-    color: `#${Math.floor(Math.random()*16777215).toString(16)}` // Random color
+    color: `#${Math.floor(Math.random()*16777215).toString(16)}`
   };
 }
