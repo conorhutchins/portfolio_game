@@ -7,9 +7,10 @@ interface MainCellProps {
   setPosition: React.Dispatch<React.SetStateAction<{ x: number; y: number }>>;
   size: number;
   label: string;
+  isPaused: boolean;
 }
 
-const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label }) => {
+const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label, isPaused }) => {
   const requestRef = useRef<number>();
   const [velocity, setVelocity] = useState({ x: 0, y: 0 });
 
@@ -38,8 +39,10 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label 
   }, [velocity, size, setPosition]);
 
   useEffect(() => {
-    window.addEventListener('mousemove', handleMouseMove);
-    requestRef.current = requestAnimationFrame(updatePosition);
+    if (!isPaused) {
+      window.addEventListener('mousemove', handleMouseMove);
+      requestRef.current = requestAnimationFrame(updatePosition);
+    }
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
@@ -47,7 +50,7 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label 
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, [handleMouseMove, updatePosition]);
+  }, [handleMouseMove, updatePosition, isPaused]);
 
   const style = {
     '--left': `${position.x}px`,
