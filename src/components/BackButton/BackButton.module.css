@@ -1,14 +1,16 @@
-/* BackButton.module.css */
 .backButton {
   background-color: transparent;
   border: none;
   cursor: pointer;
   transition: transform 0.3s, opacity 0.3s;
+  padding: 10px; /* Increase clickable area */
+  border-radius: 50%;
 }
 
 .backButton:hover {
   transform: scale(1.1);
   opacity: 0.8;
+  background-color: #FF7400 !important;
 }
 
 .backButton img {
@@ -17,6 +19,9 @@
   transition: filter 0.3s;
 }
 
-.backButton:hover img {
-  filter: invert(1) brightness(2);
+
+@media (max-width: 600px) {
+  .backButton {
+    transform: scale(0.8  ); /* Reduce size for smaller screens */
+  }
 }

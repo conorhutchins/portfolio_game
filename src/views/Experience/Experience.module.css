@@ -39,18 +39,20 @@
 
 
 /* Responsive design (if needed) */
-@media (min-width: 380px) {
+@media (min-width: 300px) {
   .headText {
     font-size: 40px; /* Adjust if necessary */
-    padding-top: 1.5em;
+    padding-top: 1em;
+    padding-left: .75em;
   }
 
   .subText {
     font-size: 1rem; /* Adjust if necessary */
+    margin-top: .5em;
   }
 
   .experienceBackButton {
-    top: 4%; /* Adjust if necessary */
+    top: 1% !important; /* Adjust if necessary */
     left: 0%; /* Adjust if necessary */
   }
   .timelineContainer {
@@ -62,5 +64,13 @@
     margin-right: auto;
     position: relative; /* Added for positioning */
   }
-}
+  @media (min-width: 470px) {
+    .headText {/* Adjust if necessary */
+      padding-top: 2em;
+      padding-left: 0em;
+    }
+  };
+    
+  }
+
 

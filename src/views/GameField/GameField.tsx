@@ -83,7 +83,7 @@ const GameField: React.FC = () => {
         );
       }, 1000);
 
-      const spawnInterval = setInterval(addNewConsumableCell, 10000);
+      const spawnInterval = setInterval(addNewConsumableCell, 1300);
 
       return () => {
         clearInterval(bounceInterval);

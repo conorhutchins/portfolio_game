@@ -80,6 +80,15 @@
   .projectsBackButton {
     left: 0px; /* Consistent left position */
   }
+  .sectionSubText {
+    line-height: 1em;
+  }
+  .projectsBackButton {
+   
+    top: 14%; /* Consistent top position */
+
+  }
+   
 }
 
 @media (min-width: 640px) {
