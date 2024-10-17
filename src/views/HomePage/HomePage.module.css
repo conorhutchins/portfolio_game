@@ -217,4 +217,27 @@
    top: 20px;
    height: 90%;
   }
+
+  @media screen and (max-width: 380px) {
+
+  .homePageContent {
+    margin: 0;
+  }
+  .typingHeader {
+    margin: 0;
+  }
+  .form {
+    gap: .5rem;
+    padding-top: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  .homePageContent p {
+    font-size: .90em;
+  }
+  .homePageCoolObject {
+    top: 0px;
+    height: 90%;
+   }
+  }
 }

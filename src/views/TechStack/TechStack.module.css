@@ -74,7 +74,7 @@
   margin-bottom: 20px;
   color: var(--title-text-color);
   text-align: center;
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
 }
 
 .conorCoding {
@@ -126,7 +126,7 @@
   .skillGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 4 items per row */
-    gap: var(--grid-gap);
+    gap: 10px;
     justify-content: center;
   }
 
@@ -165,9 +165,14 @@
     left: 0%;
   }
 }
-
+@media (min-width: 300px) and (max-width: 422px) {
+.techSkills h2 {
+  padding-left: .5em;
+  padding-bottom: 1em;
+}
+}
 /* Medium phones */
-@media (min-width: 481px) and (max-width: 534px) {
+@media (min-width: 423px) and (max-width: 534px) {
   .title {
     text-align: center;
     margin-left: auto;
@@ -181,6 +186,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .techSkills h2 {
+    padding-bottom: 1em;
   }
 
   .techStackSection {
@@ -231,7 +239,7 @@
 
   .techStackBackButton {
     top: 15%;
-    left: 0%;
+    left: 0% !important;
   }
 }
 
@@ -250,6 +258,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .techSkills h2 {
+    padding-bottom: 1em;
   }
 
   .techStackSection {
@@ -312,7 +323,7 @@
   .skillGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Ensure 5 items per row */
-    gap: var(--grid-gap);
+    gap: 20px;
     justify-items: center; /* Make sure items are centered in their columns */
   }
     /* Center the last row with items */
@@ -341,8 +352,12 @@
     flex-direction: column;
     align-items: center;
   }
+  .techSkills h2 {
+    padding-bottom: 1em;
+  }
+
   .techStackBackButton {
-    top: 17%;
+    top: 15%;
     left: 0%;
   }
 }
@@ -394,7 +409,7 @@
     border-radius: 30px;
   }
   .techStackBackButton {
-    top: 18%;
+    top: 15%;
     left: 0%;
   }
 }

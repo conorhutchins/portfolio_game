@@ -55,7 +55,13 @@
     align-items: center;
   }
 
-  
+  @media screen and (max-width: 480px) {
+.modalContent {
+    padding: 1em;
+    max-width: 90%;
+  }
+
+  }
   /* Responsive styles */
   @media (max-width: 600px) {
   
@@ -63,4 +69,3 @@
     font-size: 1em;
 }
   }
-  

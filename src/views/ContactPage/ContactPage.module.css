@@ -25,14 +25,13 @@
 @media (max-width: 480px) {
   /* Adjustments for small portrait phones */
   .contactBackButton {
-    top: 15%;
+    top: 10% !important;
     left: 0%;
   }
   .title {
     font-size: 40px !important;
   }
 
-  
 }
 
 /* Medium phones */

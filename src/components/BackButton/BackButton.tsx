@@ -8,15 +8,21 @@ const BackButton: React.FC = () => {
   const navigate = useNavigate();
   const { isDarkMode } = useTheme();
 
-  console.log('isDarkMode:', isDarkMode);
-
   const handleClick = () => {
     navigate(-1);
   };
 
   return (
-    <button onClick={handleClick} className={styles.backButton}>
-      {isDarkMode ? <IoArrowBackCircleOutline size={50} color="white" /> : <IoArrowBackCircleSharp size={50} color="black" />}
+    <button
+      onClick={handleClick}
+      className={styles.backButton}
+      aria-label="Go back"
+    >
+      {isDarkMode ? (
+        <IoArrowBackCircleOutline size={50} color="white" />
+      ) : (
+        <IoArrowBackCircleSharp size={50} color="black" />
+      )}
     </button>
   );
 };
