@@ -14,35 +14,48 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label,
   const requestRef = useRef<number>();
   const [velocity, setVelocity] = useState({ x: 0, y: 0 });
 
-  // Memoize handleMouseMove using useCallback
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
-      const dx = e.clientX - position.x;
-      const dy = e.clientY - position.y;
-      const angle = Math.atan2(dy, dx);
-      const speed =
-        window.innerWidth <= 600
-          ? CONFIG.MAIN_CELL.speedMultiplier * 0.5
-          : CONFIG.MAIN_CELL.speedMultiplier;
-      setVelocity({ x: Math.cos(angle) * speed, y: Math.sin(angle) * speed });
+      if (!isPaused) {
+        const dx = e.clientX - position.x;
+        const dy = e.clientY - position.y;
+        const angle = Math.atan2(dy, dx);
+        const speed = CONFIG.MAIN_CELL.speedMultiplier;
+        setVelocity({ x: Math.cos(angle) * speed, y: Math.sin(angle) * speed });
+      }
     },
-    [position.x, position.y]
+    [position.x, position.y, isPaused]
   );
 
-  // Memoize updatePosition using useCallback
   const updatePosition = useCallback(() => {
-    setPosition((prev) => ({
-      x: Math.max(0, Math.min(window.innerWidth - size, prev.x + velocity.x)),
-      y: Math.max(0, Math.min(window.innerHeight - size, prev.y + velocity.y)),
-    }));
+    if (!isPaused) {
+      setPosition((prev) => {
+        let newX = prev.x + velocity.x;
+        let newY = prev.y + velocity.y;
+
+        // Calculate the maximum allowed positions
+        const maxX = window.innerWidth - size;
+        const maxY = window.innerHeight - size;
+
+        // Bounce off the edges
+        if (newX <= 0 || newX >= maxX) {
+          newX = Math.max(0, Math.min(maxX, newX));
+          setVelocity(v => ({ ...v, x: -v.x }));
+        }
+        if (newY <= 0 || newY >= maxY) {
+          newY = Math.max(0, Math.min(maxY, newY));
+          setVelocity(v => ({ ...v, y: -v.y }));
+        }
+
+        return { x: newX, y: newY };
+      });
+    }
     requestRef.current = requestAnimationFrame(updatePosition);
-  }, [velocity, size, setPosition]);
+  }, [velocity, size, setPosition, isPaused]);
 
   useEffect(() => {
-    if (!isPaused) {
-      window.addEventListener('mousemove', handleMouseMove);
-      requestRef.current = requestAnimationFrame(updatePosition);
-    }
+    window.addEventListener('mousemove', handleMouseMove);
+    requestRef.current = requestAnimationFrame(updatePosition);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
@@ -50,7 +63,7 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label,
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, [handleMouseMove, updatePosition, isPaused]);
+  }, [handleMouseMove, updatePosition]);
 
   const style = {
     '--left': `${position.x}px`,
