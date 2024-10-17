@@ -54,6 +54,7 @@
     justify-content: center;
     align-items: center;
   }
+
   
   /* Responsive styles */
   @media (max-width: 600px) {
