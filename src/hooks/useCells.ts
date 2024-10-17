@@ -97,7 +97,7 @@ export const useCells = (
       clearInterval(moveInterval);
       clearInterval(collisionInterval);
     };
-  }, [mainCellPosition, mainCellSize, handleMainCellConsume, handleLabelledCellConsume, showCVModal]);
+  }, [mainCellPosition, mainCellSize, handleMainCellConsume, handleLabelledCellConsume, showCVModal, windowWidth, windowHeight]);
 
   return {
     mainCellPosition,
