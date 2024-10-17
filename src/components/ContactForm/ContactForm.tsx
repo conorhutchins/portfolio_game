@@ -40,7 +40,13 @@ const ContactForm: React.FC = () => {
     { setSubmitting, resetForm }: FormikHelpers<ContactFormValues>
   ) => {
     try {
-      const response = await sendEmail(values);
+      const emailParams = {
+        name: values.name,    // Matches {{name}} in your templates
+        email: values.email,  // Matches {{email}} in your templates
+        message: values.message, // Matches {{message}}
+      };
+  
+      const response = await sendEmail(emailParams);
       console.log('SUCCESS!', response.status, response.text);
       setFeedbackMessage('Message sent successfully!');
       resetForm();
