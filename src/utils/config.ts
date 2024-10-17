@@ -1,7 +1,7 @@
 export const CONFIG = {
   MAIN_CELL: {
     initialSize: 50,
-    speedMultiplier: 5,
+    speedMultiplier: 4,
   },
   LABELLED_CELL: {
     speedMultiplier: 8,

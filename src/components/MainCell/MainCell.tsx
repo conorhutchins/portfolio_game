@@ -14,17 +14,24 @@ const MainCell: React.FC<MainCellProps> = ({ position, setPosition, size, label,
   const requestRef = useRef<number>();
   const [velocity, setVelocity] = useState({ x: 0, y: 0 });
 
+  const getSpeedMultiplier = useCallback(() => {
+    // Adjust the speed based on screen width
+    return window.innerWidth < 768
+      ? CONFIG.MAIN_CELL.speedMultiplier * 0.6 // Slower on smaller devices
+      : CONFIG.MAIN_CELL.speedMultiplier;
+  }, []);
+
   const handleMouseMove = useCallback(
     (e: MouseEvent) => {
       if (!isPaused) {
         const dx = e.clientX - position.x;
         const dy = e.clientY - position.y;
         const angle = Math.atan2(dy, dx);
-        const speed = CONFIG.MAIN_CELL.speedMultiplier;
+        const speed = getSpeedMultiplier();
         setVelocity({ x: Math.cos(angle) * speed, y: Math.sin(angle) * speed });
       }
     },
-    [position.x, position.y, isPaused]
+    [position.x, position.y, isPaused, getSpeedMultiplier]
   );
 
   const updatePosition = useCallback(() => {
